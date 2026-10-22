@@ -154,7 +154,7 @@ def discover(roots, *, homebrew=True, tools=True, max_dirs=100000):
     dependency_files, manifests = set(), set()
     visited = 0
     for root in roots:
-        root = Path(root).expanduser().absolute()
+        root = Path(root).expanduser().resolve()
         if not root.is_dir():
             warnings.append(f"Missing scan root: {root}")
             continue

@@ -33,6 +33,8 @@ def output(data, json_output):
     if json_output:
         print(json.dumps(data, indent=2))
         return
+    if isinstance(data, dict) and "action" in data and "status" in data:
+        data = [data]
     if isinstance(data, dict) and "findings" in data:
         print(
             f"{len(data['packages'])} packages; {len(data['findings'])} findings; {len(data['warnings'])} coverage warnings"
@@ -68,18 +70,45 @@ def output(data, json_output):
     elif isinstance(data, list) and all("supported" in a for a in data):
         for a in data:
             p = a["package"]
+            target = a["target_version"] or (
+                "manager-resolved release" if a.get("adapter") == "project" else "review"
+            )
             print(
                 clean(
-                    f"{a['id']}  {p['name']} {p['version']} -> {a['target_version'] or 'review'}  {'READY' if a['supported'] else 'MANUAL'}"
+                    f"{a['id']}  {p['name']} {p['version']} -> {target}  {'READY' if a['supported'] else 'MANUAL'}"
                 )
             )
             print("  " + clean(a["reason"]))
             print("  " + clean(p["location"]))
+            if a.get("adapter") == "project":
+                print(
+                    "  "
+                    + clean(
+                        "Dependencies: " + ", ".join(p["name"] + " " + p["version"] for p in a["packages"])
+                    )
+                )
+                print("  " + clean("Publish verified dependency files: " + ", ".join(a["files"])))
+                print("  " + clean("Working directory: " + a["working_directory"]))
             for cmd in a["commands"]:
                 print("  Suggested command: " + clean(shlex.join(cmd)))
             for instruction in a["instructions"]:
                 if instruction:
                     print("  " + clean(instruction))
+    elif isinstance(data, list) and all("status" in item for item in data):
+        for receipt in data:
+            action = receipt.get("action", {})
+            name = action.get("package", {}).get("name", "update")
+            print(clean(f"[{receipt['status']}] {name}"))
+            if receipt.get("id"):
+                print("  Receipt: " + receipt["id"])
+            if receipt.get("error"):
+                print("  " + clean(receipt["error"]))
+            for package in receipt.get("resolved_packages", []):
+                print("  " + clean(package["name"] + " -> " + package["version"]))
+            if action.get("adapter") == "project" and receipt["status"] == "verified-version":
+                print("  Dependency files updated. Sync the project environment and run its tests.")
+            if receipt["status"] == "manual":
+                print("  " + clean(action.get("reason", "Review this action")))
     else:
         print(json.dumps(data, indent=2))
 
@@ -168,8 +197,28 @@ def fix_report(report, args, state):
         if missing:
             raise ValueError("Unknown action IDs: " + ", ".join(sorted(missing)))
         actions = [a for a in actions if a["id"] in requested]
-    if not args.apply:
+    if not args.json or not args.apply:
         output(actions, args.json)
+    if report["warnings"]:
+        for warning in report["warnings"]:
+            print("WARNING: " + clean(warning), file=sys.stderr)
+        return 2
+    apply_updates = args.apply
+    ready = [a for a in actions if a["supported"]]
+    if (
+        not apply_updates
+        and ready
+        and args.command == "fix"
+        and not args.json
+        and sys.stdin.isatty()
+        and sys.stdout.isatty()
+    ):
+        try:
+            answer = input(f"Apply {len(ready)} update action(s)? [y/N] ").strip().lower()
+        except EOFError:
+            answer = ""
+        apply_updates = answer in {"y", "yes"}
+    if not apply_updates:
         return 1 if actions else 0
     receipts = []
     for action in actions:
@@ -217,7 +266,12 @@ def parser():
         scan_arguments(c)
         if name in {"fix", "watch"}:
             c.add_argument(
-                "--apply", action="store_true", help="Execute supported updates (otherwise read-only)"
+                "--apply",
+                "--yes",
+                "-y",
+                dest="apply",
+                action="store_true",
+                help="Approve supported updates for unattended execution",
             )
             c.add_argument("--only", action="append", default=[], help="Restrict fixes to action IDs")
         if name == "scan":

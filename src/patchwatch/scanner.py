@@ -65,6 +65,7 @@ def scan(inventory, catalog, digest, *, osv=False):
         warnings.extend(errors)
     return dict(
         schema_version=1,
+        osv_enabled=osv,
         generated=datetime.now(UTC).isoformat(),
         catalog_sha256=digest,
         catalog_updated=catalog["updated"],
@@ -87,7 +88,7 @@ def osv_query(ecosystem, name, ver):
         req = urllib.request.Request(
             "https://api.osv.dev/v1/query",
             data=json.dumps(payload).encode(),
-            headers={"Content-Type": "application/json", "User-Agent": "patchwatch/0.3"},
+            headers={"Content-Type": "application/json", "User-Agent": "patchwatch/0.4"},
         )
         with urllib.request.urlopen(req, timeout=20) as response:
             raw = response.read(8 * 1024 * 1024 + 1)

@@ -151,6 +151,8 @@ def read(path, warnings):
                     if key == "__metadata":
                         continue
                     resolution = p.get("resolution", "")
+                    if "@workspace:" in resolution:
+                        continue
                     match = re.fullmatch(r"(.+)@(?:virtual:[^#]+#)?npm:(\d[^:]*)(?::.*)?", resolution)
                     if match:
                         add("npm", match[1], match[2])

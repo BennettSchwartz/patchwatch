@@ -19,6 +19,7 @@ from pathlib import Path
 from packaging.specifiers import SpecifierSet
 from packaging.version import Version
 
+from . import project_fixes
 from .catalog import canonical, read_url, version
 from .inventory import read_site
 from .projects import update_guidance
@@ -104,8 +105,10 @@ def plan(report):
                 action["commands"].append(command)
             action["instructions"].append(instruction)
             action["working_directory"] = p["project"]
+        if p.get("lockfile"):
+            project_fixes.configure(action, report)
         actions.append(action)
-    return actions
+    return project_fixes.group(actions)
 
 
 def hash_file(path):
@@ -186,6 +189,8 @@ def validate_wheel(data, name, expected_version):
 def apply(action, state_dir, *, run=subprocess.run):
     if not action["supported"]:
         raise ValueError(action["reason"])
+    if action.get("adapter") == "project":
+        return project_fixes.apply(action, state_dir, run=run)
     run_id = str(uuid.uuid4())
     directory = Path(state_dir) / "runs" / run_id
     directory.mkdir(parents=True, mode=0o700)
@@ -304,6 +309,8 @@ def rollback(run_id, state_dir):
         raise ValueError("Invalid run ID")
     directory = Path(state_dir) / "runs" / run_id
     receipt = json.loads((directory / "receipt.json").read_text())
+    if receipt["action"].get("adapter") == "project":
+        return project_fixes.rollback(receipt, directory)
     if receipt["action"].get("adapter") != "python" or not receipt.get("after") or not receipt.get("before"):
         raise ValueError("No verified Python snapshot available for automatic rollback")
     if receipt.get("status") == "rolled-back":

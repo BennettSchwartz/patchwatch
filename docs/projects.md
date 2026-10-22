@@ -40,9 +40,36 @@ Project mode omits machine-wide Homebrew and PATH tool inventory. Use `--root` f
 
 ## Update plans
 
-`patchwatch plan --project .` includes the project directory, advisory fix guidance, and an available package-manager command. The operator selects a compatible fixed release and reviews manifest constraints before regenerating the lockfile. Run the project's tests and scan again after updating.
+```sh
+patchwatch fix --project .
+patchwatch fix --project . --yes
+patchwatch rollback RUN_UUID --apply
+```
 
-Automatic application remains available for the supported installed Python environments and Homebrew packages described in the [usage guide](usage.md). Project lockfile plans are reviewed and run through the owning package manager.
+The first command displays the proposed package-manager operations and asks for confirmation. The second supplies approval for an unattended run. `patchwatch plan --project .` previews the actions.
+
+| Manager | Files published after verification |
+| --- | --- |
+| npm | `package.json` and the npm lockfile |
+| pnpm | `package.json`, `pnpm-lock.yaml`, and an existing workspace catalog when updated |
+| Yarn Classic / Berry | `package.json` and `yarn.lock` |
+| uv / Poetry | `pyproject.toml` and the owning lockfile |
+| Cargo | `Cargo.toml` and `Cargo.lock` |
+| Composer | `composer.json` and `composer.lock` |
+| Bundler | `Gemfile` and `Gemfile.lock` |
+| Go | `go.mod` and `go.sum` |
+| Dart Pub | `pubspec.yaml` and `pubspec.lock` |
+| Mix | `mix.exs` and `mix.lock` |
+
+These adapters cover 8 of the 10 scanned ecosystems. Maven/Gradle and NuGet currently produce findings and update guidance. The CLI explains when a required package manager is missing. Pinned `requirements.txt` and Pipenv locks also retain manual guidance.
+
+For each dependency file, Patchwatch groups affected packages into one update transaction. It snapshots the original files and runs the package manager in a temporary project copy. Managers resolve updates according to their normal dependency rules; Go selects the latest release of the selected module. JavaScript lifecycle scripts are disabled, Composer plugins/scripts are disabled, and uv builds are disabled. Bundler and Mix evaluate their project configuration.
+
+Before publishing, Patchwatch rescans the resulting dependency graph with the local catalog and OSV when enabled. The selected packages must be clear of reported advisories, and the graph must introduce no additional advisory findings. Unresolved constraints produce a failed update receipt with the original project files preserved. Concurrent edits also stop publication.
+
+Verified dependency files are copied back with a receipt recording resolved versions. Rollback restores their previous contents after checking for later edits. Files outside the adapter's publication list remain in the temporary copy; unexpected changes to existing project source files stop the transaction. Staging supports regular files up to 20,000 files / 256 MiB, excluding common caches and dependency directories.
+
+Install or sync from the updated files, then run the project's tests. Runtime services and deployed images follow their normal release workflow. Project rollback covers dependency files; package-manager caches and external effects of project configuration are outside that snapshot.
 
 ## Offline scans and reports
 

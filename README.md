@@ -27,9 +27,9 @@ Its shared catalog lives here on GitHub: affected versions, recommended updates,
 - **Scan projects across 10 package ecosystems** with per-project findings and dependency-file locations. See [language coverage](docs/projects.md).
 - **Discover installed packages** across Python environments, Homebrew, service binaries, and CLI tools.
 - **Turn advisories into update plans** with affected locations and fixed versions.
-- **Apply supported fixes** to Python virtual environments and active Homebrew formulae when you opt in.
-- **Recover from a Python update** using package snapshots. Rollback checks for later file changes before restoring them.
-- **Check again on a schedule** with foreground monitoring or a macOS LaunchAgent.
+- **Fix project dependencies** through their package manager. Review the proposed commands and confirm in the terminal.
+- **Roll back an update** using saved dependency files or Python package snapshots.
+- **Monitor for new advisories** with recurring scans and optional approved updates.
 
 ## Quick start
 
@@ -42,7 +42,7 @@ patchwatch scan --project ~/projects/my-app --intelligence
 
 Requires **Python 3.11+** on **macOS or Linux**. Scanning is read-only. OSV lookup sends package names and versions; local paths and source files stay on your machine.
 
-Follow the [usage guide](docs/usage.md) to review a plan, apply a fix, roll back a Python update, or enable monitoring.
+Follow the [usage guide](docs/usage.md) to review a plan, apply fixes or set up monitoring.
 
 ## A catalog we can maintain together
 

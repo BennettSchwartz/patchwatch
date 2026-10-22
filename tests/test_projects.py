@@ -262,3 +262,22 @@ def test_maven_export_includes_transitive_dependencies(tmp_path):
     found = inventory.discover([tmp_path], homebrew=False, tools=False)
     assert not found["warnings"]
     assert {p["name"] for p in found["packages"]} == {"org.example:direct", "org.example:transitive"}
+
+
+def test_scan_root_symlink_preserves_manifest_association(tmp_path):
+    root = tmp_path / "real"
+    root.mkdir()
+    (root / "uv.lock").write_text("version=1\npackage=[]")
+    (root / "pyproject.toml").write_text('[project]\nname="demo"')
+    alias = tmp_path / "alias"
+    alias.symlink_to(root, target_is_directory=True)
+    assert not inventory.discover([alias], homebrew=False, tools=False)["warnings"]
+
+
+def test_yarn_workspace_identity_is_project_source(tmp_path):
+    (tmp_path / "yarn.lock").write_text(
+        '__metadata:\n  version: 8\n"app@workspace:.":\n  version: 0.0.0-use.local\n  resolution: "app@workspace:."\n"lodash@npm:^4.17.20":\n  version: 4.17.20\n  resolution: "lodash@npm:4.17.20"\n'
+    )
+    found = inventory.discover([tmp_path], homebrew=False, tools=False)
+    assert not found["warnings"]
+    assert [p["name"] for p in found["packages"]] == ["lodash"]
