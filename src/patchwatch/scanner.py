@@ -6,6 +6,7 @@ from packaging.specifiers import SpecifierSet
 from packaging.version import InvalidVersion
 
 from .catalog import canonical, version
+from .projects import ECOSYSTEMS
 
 
 def scan(inventory, catalog, digest, *, osv=False):
@@ -69,6 +70,10 @@ def scan(inventory, catalog, digest, *, osv=False):
         catalog_updated=catalog["updated"],
         catalog_rules=catalog["advisories"],
         packages=inventory["packages"],
+        projects=[
+            {**p, "findings": sum(f["package"].get("project") == p["path"] for f in findings)}
+            for p in inventory.get("projects", [])
+        ],
         findings=findings,
         warnings=warnings,
         coverage=inventory["coverage"],
@@ -76,20 +81,29 @@ def scan(inventory, catalog, digest, *, osv=False):
 
 
 def osv_query(ecosystem, name, ver):
-    payload = json.dumps({"package": {"ecosystem": ecosystem, "name": name}, "version": ver}).encode()
-    req = urllib.request.Request(
-        "https://api.osv.dev/v1/query",
-        data=payload,
-        headers={"Content-Type": "application/json", "User-Agent": "patchwatch/0.1"},
-    )
-    with urllib.request.urlopen(req, timeout=20) as response:
-        raw = response.read(8 * 1024 * 1024 + 1)
-    if len(raw) > 8 * 1024 * 1024:
-        raise ValueError("OSV response exceeds size limit")
-    data = json.loads(raw)
-    if data.get("next_page_token"):
-        raise ValueError("OSV paginated response: incomplete results; use OSV-Scanner for this package")
-    return data.get("vulns", [])
+    payload = {"package": {"ecosystem": ecosystem, "name": name}, "version": ver}
+    results, tokens = {}, set()
+    for _ in range(20):
+        req = urllib.request.Request(
+            "https://api.osv.dev/v1/query",
+            data=json.dumps(payload).encode(),
+            headers={"Content-Type": "application/json", "User-Agent": "patchwatch/0.3"},
+        )
+        with urllib.request.urlopen(req, timeout=20) as response:
+            raw = response.read(8 * 1024 * 1024 + 1)
+        if len(raw) > 8 * 1024 * 1024:
+            raise ValueError("OSV response exceeds size limit")
+        data = json.loads(raw)
+        for vuln in data.get("vulns", []):
+            results[vuln["id"]] = vuln
+        token = data.get("next_page_token")
+        if not token:
+            return list(results.values())
+        if token in tokens:
+            raise ValueError("OSV pagination repeated a token")
+        tokens.add(token)
+        payload["page_token"] = token
+    raise ValueError("OSV pagination exceeded 20 pages; coverage incomplete")
 
 
 def scan_osv(packages):
@@ -97,7 +111,7 @@ def scan_osv(packages):
 
     groups = {}
     for p in packages:
-        if p["ecosystem"] in {"PyPI", "npm"}:
+        if p["ecosystem"] in ECOSYSTEMS:
             groups.setdefault((p["ecosystem"], p["name"], p["version"]), []).append(p)
 
     def query(key):

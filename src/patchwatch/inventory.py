@@ -10,6 +10,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+from . import projects
 from .catalog import canonical
 
 PRUNE = {
@@ -97,17 +98,52 @@ def read_site(site, warnings):
 def read_npm(path, warnings):
     out = []
     try:
+        if path.is_symlink():
+            raise ValueError("Symlinked lockfile requires scanning its owning project")
         if path.stat().st_size > 16 * 1024 * 1024:
             raise ValueError("lockfile exceeds size limit")
         lock = json.loads(path.read_text())
-        if lock.get("lockfileVersion", 0) < 2:
-            warnings.append(f"{path}: npm lockfile v1 is not supported")
-            return []
+        if lock.get("lockfileVersion") == 1:
+
+            def visit(dependencies, parent=""):
+                for name, item in dependencies.items():
+                    location = parent + "node_modules/" + name
+                    ver = item.get("version", "")
+                    if re.fullmatch(r"\d[^\s]*", ver):
+                        out.append(
+                            package(
+                                "npm",
+                                name,
+                                ver,
+                                f"{path.resolve()}#{location}",
+                                "lockfile",
+                                project=str(path.parent.resolve()),
+                                lockfile=str(path.resolve()),
+                            )
+                        )
+                    else:
+                        warnings.append(f"{path}: unresolved npm dependency {name}")
+                    visit(item.get("dependencies", {}), location + "/")
+
+            visit(lock.get("dependencies", {}))
+            return out
+        if lock.get("lockfileVersion") not in {2, 3}:
+            raise ValueError("Unsupported npm lockfile version")
         for location, item in lock.get("packages", {}).items():
             if not location or not item.get("version") or item.get("link"):
                 continue
             name = item.get("name") or location.rsplit("node_modules/", 1)[-1]
-            out.append(package("npm", name, item["version"], f"{path.resolve()}#{location}", "lockfile"))
+            out.append(
+                package(
+                    "npm",
+                    name,
+                    item["version"],
+                    f"{path.resolve()}#{location}",
+                    "lockfile",
+                    project=str(path.parent.resolve()),
+                    lockfile=str(path.resolve()),
+                )
+            )
     except (OSError, ValueError, TypeError) as exc:
         warnings.append(f"{path}: {exc}")
     return out
@@ -115,6 +151,7 @@ def read_npm(path, warnings):
 
 def discover(roots, *, homebrew=True, tools=True, max_dirs=100000):
     out, warnings, sites, seeds, locks = [], [], set(), set(), set()
+    dependency_files, manifests = set(), set()
     visited = 0
     for root in roots:
         root = Path(root).expanduser().absolute()
@@ -134,8 +171,13 @@ def discover(roots, *, homebrew=True, tools=True, max_dirs=100000):
             if p.name == "_bundled" and p.parent.name == "ensurepip":
                 seeds.update(p / n for n in names if re.fullmatch(r"pip-[\d.]+-.*\.whl", n))
                 dirs[:] = []
-            if "package-lock.json" in names:
-                locks.add(p / "package-lock.json")
+            for name in names:
+                if name in {"package-lock.json", "npm-shrinkwrap.json"}:
+                    locks.add(p / name)
+                elif name in projects.FILES:
+                    dependency_files.add(p / name)
+                elif name in projects.MANIFESTS or name.endswith((".csproj", ".fsproj", ".vbproj")):
+                    manifests.add(p / name)
         if visited > max_dirs:
             break
     for site in sorted(sites):
@@ -144,6 +186,16 @@ def discover(roots, *, homebrew=True, tools=True, max_dirs=100000):
         out.append(package("PyPI", "pip", seed.name.split("-")[1], seed, "python-seed"))
     for lock in sorted(locks):
         out.extend(read_npm(lock, warnings))
+    for path in sorted(dependency_files):
+        out.extend(projects.read(path, warnings))
+    for path in sorted(manifests):
+        expected = projects.MANIFESTS.get(path.name, {"packages.lock.json"})
+        scan_roots = [Path(root).expanduser().resolve() for root in roots]
+        ancestors = [
+            parent for parent in path.parents if any(parent.is_relative_to(root) for root in scan_roots)
+        ]
+        if not any((parent / name).is_file() for parent in ancestors for name in expected):
+            warnings.append(f"{path}: resolved dependency file needed; see docs/projects.md")
     if homebrew and shutil.which("brew"):
         try:
             cmd = [shutil.which("brew"), "info", "--json=v2", "--installed"]
@@ -218,6 +270,7 @@ def discover(roots, *, homebrew=True, tools=True, max_dirs=100000):
     return {
         "packages": list({p["id"]: p for p in out}.values()),
         "warnings": warnings,
+        "projects": projects.summarize(out, dependency_files | locks | manifests),
         "coverage": {
             "roots": [str(p) for p in roots],
             "directories": visited,

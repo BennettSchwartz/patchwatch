@@ -37,6 +37,12 @@ def output(data, json_output):
         print(
             f"{len(data['packages'])} packages; {len(data['findings'])} findings; {len(data['warnings'])} coverage warnings"
         )
+        for project in data.get("projects", []):
+            print(
+                clean(
+                    f"Project {project['path']}: {project['packages']} dependencies, {project['findings']} findings"
+                )
+            )
         for f in data["findings"]:
             p = f["package"]
             print(
@@ -94,9 +100,14 @@ def get_catalog(args, state, *, refresh=False):
 
 
 def collect(args):
-    roots = args.root or inventory.default_roots()
+    if args.project and args.root:
+        raise ValueError("Choose --project or --root for scan scope")
+    roots = args.project or args.root or inventory.default_roots()
     result = inventory.discover(
-        roots, homebrew=not args.no_homebrew, tools=not args.no_tools, max_dirs=args.max_dirs
+        roots,
+        homebrew=not (args.no_homebrew or args.project),
+        tools=not (args.no_tools or args.project),
+        max_dirs=args.max_dirs,
     )
     for value in args.tool:
         name, sep, version = value.partition("=")
@@ -122,8 +133,10 @@ def collect(args):
 
 def get_report(args, state, *, refresh=False):
     data, digest = get_catalog(args, state, refresh=refresh)
-    report = scanner.scan(collect(args), data, digest, osv=args.osv)
-    return intelligence.enrich(report) if args.intelligence else report
+    report = scanner.scan(
+        collect(args), data, digest, osv=(args.osv or bool(args.project)) and not args.offline
+    )
+    return intelligence.enrich(report) if args.intelligence and not args.offline else report
 
 
 class RunLock:
@@ -174,6 +187,10 @@ def scan_arguments(parser):
         action="append",
         help="Directory to inspect; repeatable. Default: home and runtime locations",
     )
+    parser.add_argument(
+        "--project", action="append", metavar="PATH", help="Scan project dependencies with OSV; repeatable"
+    )
+    parser.add_argument("--offline", action="store_true", help="Use the local catalog for this scan")
     parser.add_argument("--catalog", type=Path, help="Explicit local catalog")
     parser.add_argument("--osv", action="store_true", help="Query OSV using package names and versions")
     parser.add_argument("--no-homebrew", action="store_true")
@@ -236,6 +253,8 @@ def parser():
     s.add_argument("action", choices=["install", "remove", "show"])
     s.add_argument("--interval", type=int, default=86400)
     s.add_argument("--root", action="append", default=[])
+    s.add_argument("--project", action="append", default=[])
+    s.add_argument("--offline", action="store_true")
     s.add_argument("--osv", action="store_true")
     s.add_argument("--intelligence", action="store_true")
     s.add_argument("--apply", action="store_true", help="Enable automatic supported fixes in scheduled runs")
@@ -268,6 +287,12 @@ def schedule(args, state):
     command = [exe, "watch", "--once"]
     for root in args.root:
         command += ["--root", str(Path(root).expanduser().absolute())]
+    if args.project and args.root:
+        raise ValueError("Choose --project or --root for scan scope")
+    for project in args.project:
+        command += ["--project", str(Path(project).expanduser().absolute())]
+    if args.offline:
+        command.append("--offline")
     if args.osv:
         command.append("--osv")
     if args.intelligence:

@@ -4,10 +4,10 @@ build-backend = "hatchling.build"
 
 [project]
 name = "patchwatch-cli"
-version = "0.2.0"
+version = "0.3.0"
 description = "Inventory local packages, monitor vulnerability catalogs, and apply verified fixes."
 requires-python = ">=3.11"
-dependencies = ["packaging>=24.2", "jsonschema>=4.23"]
+dependencies = ["packaging>=24.2", "jsonschema>=4.23", "PyYAML>=6.0.2"]
 
 [project.optional-dependencies]
 dev = ["pytest>=8", "ruff>=0.11"]

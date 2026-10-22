@@ -19,7 +19,7 @@ MAX_BYTES = 8 * 1024 * 1024
 def read_url(url, *, limit=MAX_BYTES):
     if urlsplit(url).scheme != "https":
         raise ValueError("Only HTTPS catalog/artifact URLs are accepted")
-    req = urllib.request.Request(url, headers={"User-Agent": "patchwatch/0.2"})
+    req = urllib.request.Request(url, headers={"User-Agent": "patchwatch/0.3"})
     with urllib.request.urlopen(req, timeout=30) as response:
         if urlsplit(response.url).scheme != "https":
             raise ValueError("Refusing HTTPS downgrade")

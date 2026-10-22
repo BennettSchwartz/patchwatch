@@ -21,6 +21,7 @@ from packaging.version import Version
 
 from .catalog import canonical, read_url, version
 from .inventory import read_site
+from .projects import update_guidance
 
 
 def plan(report):
@@ -97,6 +98,12 @@ def plan(report):
                 )
             elif p["kind"] == "tool":
                 action["reason"] = "Use the owning package manager; standalone tools are report-only"
+        if p.get("lockfile"):
+            command, instruction = update_guidance(p)
+            if command:
+                action["commands"].append(command)
+            action["instructions"].append(instruction)
+            action["working_directory"] = p["project"]
         actions.append(action)
     return actions
 

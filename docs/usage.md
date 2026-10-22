@@ -95,3 +95,7 @@ Monitoring writes `last-report.json` and scheduled logs under the state director
 - Retained Homebrew kegs can still appear vulnerable even when the active tool is patched. They are manual findings because existing consumers may still reference them.
 - The bundled catalog contains historical package vulnerabilities and documented supply-chain compromises, together with nginx and Apache HTTP Server advisories. The [advisory index](advisories.md) lists its entries. Use `--osv` for live PyPI/npm discovery and `--intelligence` for KEV/EPSS prioritization.
 - Live HTTPS reachability, application regression tests, process restarts, image rebuilds, and lockfile persistence remain the operator's responsibility.
+
+## Project dependencies
+
+Use `patchwatch scan --project .` for a project-scoped scan with OSV discovery. See [project scanning and language coverage](projects.md) for supported dependency files and update plans.

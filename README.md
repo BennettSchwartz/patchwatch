@@ -4,7 +4,7 @@
 
 **Find vulnerable packages across your machine and get them patched.**
 
-A CLI for checking the tools and environments on your machine against a shared vulnerability catalog.
+A CLI for checking project dependencies and installed software against a shared vulnerability catalog.
 
 [![CI](https://img.shields.io/github/actions/workflow/status/BennettSchwartz/patchwatch/ci.yml?branch=main&style=for-the-badge&logo=githubactions&logoColor=white&label=CI)](https://github.com/BennettSchwartz/patchwatch/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/BennettSchwartz/patchwatch?style=for-the-badge&logo=github&logoColor=white)](https://github.com/BennettSchwartz/patchwatch/releases/latest)
@@ -20,11 +20,12 @@ A CLI for checking the tools and environments on your machine against a shared v
 
 Updating your main installation can leave older copies inside virtual environments and other developer tools. Patchwatch identifies which copies are affected and shows you how to fix them.
 
-Its shared catalog lives here on GitHub: affected versions, recommended updates, source references, and instructions for tools that need a manual fix. Optional [OSV](https://osv.dev/) lookups extend scans to published PyPI and npm advisories.
+Its shared catalog lives here on GitHub: affected versions, recommended updates, source references, and instructions for tools that need a manual fix. Optional [OSV](https://osv.dev/) lookups extend scans across supported package ecosystems.
 
 ## What it does
 
-- **Discover installed packages** across Python environments, Homebrew, service binaries, CLI tools, and npm lockfiles.
+- **Scan projects across 10 package ecosystems** with per-project findings and dependency-file locations. See [language coverage](docs/projects.md).
+- **Discover installed packages** across Python environments, Homebrew, service binaries, and CLI tools.
 - **Turn advisories into update plans** with affected locations and fixed versions.
 - **Apply supported fixes** to Python virtual environments and active Homebrew formulae when you opt in.
 - **Recover from a Python update** using package snapshots. Rollback checks for later file changes before restoring them.
@@ -36,7 +37,7 @@ Install with [uv](https://docs.astral.sh/uv/) and scan a project:
 
 ```sh
 uv tool install 'git+https://github.com/BennettSchwartz/patchwatch.git'
-patchwatch scan --root ~/projects/my-app --osv
+patchwatch scan --project ~/projects/my-app --intelligence
 ```
 
 Requires **Python 3.11+** on **macOS or Linux**. Scanning is read-only. OSV lookup sends package names and versions; local paths and source files stay on your machine.

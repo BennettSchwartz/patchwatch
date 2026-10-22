@@ -8,7 +8,7 @@ Patchwatch combines package advisory matching with CVE-based prioritization.
 | --- | --- |
 | CVE List | Published vulnerability identity and vendor records; imports use an explicit product/version mapping. |
 | GitHub Advisory Database | Imports reviewed package ranges and published fixes by GHSA identifier. |
-| OSV | Looks up advisories for installed PyPI/npm versions, including historical releases. |
+| OSV | Looks up advisories for resolved package versions across 10 ecosystems, including historical releases. |
 | CISA KEV | Identifies CVEs with documented exploitation and provides remediation guidance. |
 | FIRST EPSS | Supplies a dated probability estimate and percentile for exploitation in the following 30 days. |
 
