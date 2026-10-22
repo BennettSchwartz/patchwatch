@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "patchwatch-cli"
+version = "0.1.0"
+description = "Inventory local packages, monitor vulnerability catalogs, and apply verified fixes."
+requires-python = ">=3.11"
+dependencies = ["packaging>=24.2", "jsonschema>=4.23"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.11"]
+
+[project.scripts]
+patchwatch = "patchwatch.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/patchwatch"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "UP"]
