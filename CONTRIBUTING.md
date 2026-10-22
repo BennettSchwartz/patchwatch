@@ -1,5 +1,7 @@
 # Contributing advisories
 
+See the [catalog format guide](docs/catalog.md) for examples and the [development guide](docs/development.md) for setup and checks.
+
 Edit `src/patchwatch/data/catalog.json` in a pull request. Update its UTC `updated` timestamp and run catalog validation and tests.
 
 Each advisory needs a stable identifier (prefer a GHSA/CVE; use a `PW-` identifier for a sourced incident without one), a concise summary, severity, primary-source HTTPS references, and affected package entries. Specify exact affected ranges and a fixed version or null. Do not confuse a recommended compatibility release with the first security fix; the affected range and recommended target may differ.
