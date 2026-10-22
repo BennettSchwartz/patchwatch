@@ -24,7 +24,7 @@ Its shared catalog lives here on GitHub: affected versions, recommended updates,
 
 ## What it does
 
-- **Discover installed packages** across Python environments, Homebrew, known CLI tools, and npm lockfiles.
+- **Discover installed packages** across Python environments, Homebrew, service binaries, CLI tools, and npm lockfiles.
 - **Turn advisories into update plans** with affected locations and fixed versions.
 - **Apply supported fixes** to Python virtual environments and active Homebrew formulae when you opt in.
 - **Recover from a Python update** using package snapshots. Rollback checks for later file changes before restoring them.
@@ -47,13 +47,9 @@ Follow the [usage guide](docs/usage.md) to review a plan, apply a fix, roll back
 
 The [catalog](src/patchwatch/data/catalog.json) is plain JSON, reviewed through pull requests and validated in CI. It supports affected version ranges, fixed releases, advisory links, verified Python wheels, and optional remediation commands.
 
-The bundled rules currently cover the **eMudhra/emSign certificate incident**. Use OSV for broader advisory discovery, or [contribute a rule](CONTRIBUTING.md) with a verified fix. Custom commands are displayed for review, never automatically executed.
+The catalog includes **60 advisories reaching back to 2010**, with recovery guidance for documented package compromises. Browse the [advisory index](docs/advisories.md) or [contribute a verified fix](CONTRIBUTING.md).
 
-## Scope
-
-Automatic fixes currently cover **Python virtual environments and active Homebrew formulae**. Other installations and OSV-only findings receive manual guidance. Python updates support snapshot rollback; Homebrew updates do not.
-
-Patchwatch checks known advisories and installed versions. Its coverage is local; remote hosts and container images need separate checks. You’ll still need to test your applications after updating. See the [coverage details](docs/usage.md#coverage-and-limitations).
+Import records from [CVE List](https://www.cve.org/) or [GitHub Advisory Database](https://github.com/advisories). [OSV](https://osv.dev/) discovers additional advisories during scans. [CISA KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) and [EPSS](https://www.first.org/epss/) help prioritize findings using exploitation evidence and estimated likelihood. See [sources and service checks](docs/sources.md).
 
 ---
 

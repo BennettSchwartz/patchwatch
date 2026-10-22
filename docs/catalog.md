@@ -19,7 +19,7 @@ patchwatch catalog validate ./catalog.json
 patchwatch scan --catalog ./catalog.json --root ~/projects
 ```
 
-An invalid or checksum-mismatched download leaves the prior catalog untouched. A pinned checksum intentionally prevents automatic adoption of different catalog contents. Failed synchronization stops that monitoring cycle; it is not treated as a clean scan. Catalog timestamps and hashes are included in reports.
+An invalid or checksum-mismatched download leaves the prior catalog untouched. A pinned checksum intentionally prevents automatic adoption of different catalog contents. Failed synchronization stops that monitoring cycle with an error. Catalog timestamps and hashes are included in reports.
 
 A rule for an unfamiliar tool can still describe remediation:
 
@@ -46,4 +46,6 @@ Add it to the catalog's `advisories` array. For tools without a detector, supply
 patchwatch plan --catalog ./catalog.json --root ./project --tool example-cli=1.3.0
 ```
 
-Commands are argument arrays, displayed literally for review. They are never shell-evaluated or automatically run. `fixed: null` means no known fixed version. Version ranges use Python packaging specifiers, including unions expressed as separate affected entries; Homebrew dates/revisions are normalized for comparison. OSV uses its own ecosystem-aware version matching. Unsupported version syntax becomes a coverage warning, never a clean result.
+Commands are argument arrays that operators can review and run themselves. `fixed: null` means no known fixed version. Version ranges use Python packaging specifiers, including unions expressed as separate affected entries; Homebrew dates/revisions are normalized for comparison. OSV uses its own ecosystem-aware version matching. Unsupported version syntax produces a coverage warning.
+
+See [Advisory sources and services](sources.md) for GitHub/CVE imports and KEV/EPSS prioritization.

@@ -37,7 +37,7 @@ patchwatch scan --root ~/projects/my-app/.venv --no-homebrew --no-tools
 patchwatch scan --root ~/projects/my-app --json --output report.json
 ```
 
-OSV requests send package ecosystem, name, and installed version. Paths and project source are not sent. OSV is opt-in because package names can reveal private dependencies.
+OSV requests send package ecosystem, name, and installed version. Local paths and project source stay on your machine. OSV is opt-in because package names can reveal private dependencies.
 
 Exit codes: **0** = no findings (or successful requested operation); **1** = findings/manual or failed fixes; **2** = incomplete scan or operational error; **130** = interrupted. `inventory` is descriptive and returns 0 even with coverage warnings; use `scan` for enforcement.
 
@@ -59,12 +59,12 @@ patchwatch rollback RUN_UUID --apply
 
 Supported automatic actions:
 
-- **Python virtual environments:** pin the catalog's fixed version; save original package files and declared scripts; install a wheel with uv or pip; check the installed version and dependency consistency. Catalog wheel artifacts are SHA-256 checked and their package/version metadata must match. Source distributions are not built.
-- **Active Homebrew formulae:** upgrade through Homebrew, retain old kegs, and check that a fixed version is installed. This may update dependencies. Homebrew actions do **not** have automatic rollback.
+- **Python virtual environments:** pin the catalog's fixed version; save original package files and declared scripts; install a wheel with uv or pip; check the installed version and dependency consistency. Catalog wheel artifacts are SHA-256 checked and their package/version metadata must match. Installation uses binary wheels.
+- **Active Homebrew formulae:** upgrade through Homebrew, retain old kegs, and check that a fixed version is installed. This may update dependencies. Recovery for Homebrew actions is handled through Homebrew.
 
 Snapshots and receipts live in `~/.local/state/patchwatch/runs/`. Override with `PATCHWATCH_STATE_DIR`. Rollback refuses to overwrite files modified since the update, checks backup hashes, and invalidates generated Python bytecode. A dependency-check failure remains a failed fix; use the recorded run ID to roll back. An interrupted install might require manual recovery from its snapshot.
 
-Base Python installations, administrator-owned files, ensurepip seeds, npm lockfiles, standalone runtimes, unsupported tools, and OSV-only fixes are reported with manual guidance. Patchwatch does not execute custom commands from the catalog, silently rewrite project lockfiles, elevate privileges, or claim that a version check proves application behavior. Backups contain the previous vulnerable package; protect and eventually retire them after validating the upgrade.
+Base Python installations, administrator-owned files, ensurepip seeds, npm lockfiles, standalone runtimes, unsupported tools, and OSV-only fixes are reported with manual guidance. Operators handle custom commands and project lockfiles, along with changes requiring administrator access. Application behavior is checked through your own tests. Backups contain the previous vulnerable package; protect and eventually retire them after validating the upgrade.
 
 ## Monitor
 
@@ -82,17 +82,16 @@ patchwatch status
 patchwatch schedule remove
 ```
 
-Monitoring reports by default. Add `--apply` to `watch` or `schedule install` only to enable automatic built-in fixes. Incomplete inventories block automatic updates. Use focused roots to avoid protected folders and unrelated environments. Do not run concurrent independent state directories against the same environments; the operation lock coordinates processes sharing one state directory.
+Monitoring reports by default. Add `--apply` to `watch` or `schedule install` only to enable automatic built-in fixes. Incomplete inventories block automatic updates. Use focused roots to avoid protected folders and unrelated environments. Use a shared state directory for processes targeting the same environments so the operation lock coordinates their updates.
 
-Monitoring writes `last-report.json` and scheduled logs under the state directory. No background service is installed merely by installing the CLI. Logs are local; configure rotation for long-lived deployments.
+Monitoring writes `last-report.json` and scheduled logs under the state directory. Background operation is enabled through `schedule install`. Logs are local; configure rotation for long-lived deployments.
 
 ## Coverage and limitations
 
 - Python `.dist-info` metadata and ensurepip wheels, Homebrew installed formulae, known PATH tools (`uv`, `bun`, `node`, `go`, `pixi`), npm package-lock v2/v3.
-- Discovery reads Python metadata without importing discovered packages or executing their interpreters. Explicit fixes run the selected environment's interpreter/package manager; only fix environments you trust.
+- Discovery reads Python package metadata directly. Explicit fixes run the selected environment's interpreter/package manager; only fix environments you trust.
 - Symlinked directories, common caches, backups, container data, and selected macOS private folders are excluded. A directory budget prevents an unbounded traversal. Reports include exclusions, scan roots, and errors.
-- No detection of zero-days, malicious packages without advisories, actual exploitation, app-embedded signed bundles, remote servers, or container-image contents. Other lockfile formats are not currently parsed.
+- Coverage focuses on published advisories and the installed versions available to the detectors. Remote systems and container contents require separate inventory.
 - Retained Homebrew kegs can still appear vulnerable even when the active tool is patched. They are manual findings because existing consumers may still reference them.
-- The bundled catalog starts with the eMudhra/emSign certificate incident. It is not a complete vulnerability database. Use `--osv` for broader published PyPI/npm advisories. OSV findings require curated remediation to avoid choosing the wrong fixed release branch.
+- The bundled catalog contains historical package vulnerabilities and documented supply-chain compromises, together with nginx and Apache HTTP Server advisories. The [advisory index](advisories.md) lists its entries. Use `--osv` for live PyPI/npm discovery and `--intelligence` for KEV/EPSS prioritization.
 - Live HTTPS reachability, application regression tests, process restarts, image rebuilds, and lockfile persistence remain the operator's responsibility.
-

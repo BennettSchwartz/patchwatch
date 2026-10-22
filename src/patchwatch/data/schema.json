@@ -1,43 +1,147 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Patchwatch catalog v1",
-  "type": "object", "additionalProperties": false,
-  "required": ["schema_version", "updated", "advisories"],
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "updated",
+    "advisories"
+  ],
   "properties": {
-    "schema_version": {"const": 1},
-    "updated": {"type": "string", "format": "date-time"},
-    "advisories": {"type": "array", "items": {"$ref": "#/$defs/advisory"}}
+    "schema_version": {
+      "const": 1
+    },
+    "updated": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "advisories": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/advisory"
+      }
+    }
   },
   "$defs": {
     "advisory": {
-      "type": "object", "additionalProperties": false,
-      "required": ["id", "summary", "severity", "references", "affected"],
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "summary",
+        "severity",
+        "references",
+        "affected"
+      ],
       "properties": {
-        "id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,119}$"},
-        "aliases": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
-        "summary": {"type": "string", "minLength": 1},
-        "severity": {"enum": ["critical", "high", "moderate", "low", "unknown"]},
-        "references": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^https://", "format": "uri"}},
-        "affected": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/target"}}
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,119}$"
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "severity": {
+          "enum": [
+            "critical",
+            "high",
+            "moderate",
+            "low",
+            "unknown"
+          ]
+        },
+        "references": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^https://",
+            "format": "uri"
+          }
+        },
+        "affected": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/target"
+          }
+        }
       }
     },
     "target": {
-      "type": "object", "additionalProperties": false,
-      "required": ["ecosystem", "package", "versions"],
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ecosystem",
+        "package",
+        "versions"
+      ],
       "properties": {
-        "ecosystem": {"enum": ["PyPI", "Homebrew", "Tool", "npm"]},
-        "package": {"type": "string", "pattern": "^[A-Za-z0-9@][A-Za-z0-9@/._+-]*$"},
-        "versions": {"type": "string", "minLength": 1},
-        "fixed": {"type": ["string", "null"]},
-        "instructions": {"type": "string"},
-        "command": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "ecosystem": {
+          "enum": [
+            "PyPI",
+            "Homebrew",
+            "Tool",
+            "npm",
+            "Service"
+          ]
+        },
+        "package": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9@][A-Za-z0-9@/._+-]*$"
+        },
+        "versions": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fixed": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "instructions": {
+          "type": "string"
+        },
+        "command": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
         "artifact": {
-          "type": "object", "additionalProperties": false,
-          "required": ["url", "sha256", "filename"],
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "url",
+            "sha256",
+            "filename"
+          ],
           "properties": {
-            "url": {"type": "string", "pattern": "^https://", "format": "uri"},
-            "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
-            "filename": {"type": "string", "pattern": "^[A-Za-z0-9_.+-]+\\.whl$"}
+            "url": {
+              "type": "string",
+              "pattern": "^https://",
+              "format": "uri"
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "filename": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.+-]+\\.whl$"
+            }
           }
         }
       }

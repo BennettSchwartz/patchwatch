@@ -180,6 +180,41 @@ def discover(roots, *, homebrew=True, tools=True, max_dirs=100000):
                     warnings.append(f"Could not parse {tool} version")
             except (OSError, subprocess.SubprocessError) as exc:
                 warnings.append(f"{tool} inventory failed: {exc}")
+    if tools:
+        for name, executable, arguments in [
+            ("nginx", "nginx", ["-v"]),
+            ("httpd", "httpd", ["-v"]),
+            ("httpd", "apache2", ["-v"]),
+            ("redis", "redis-server", ["--version"]),
+            ("postgresql", "postgres", ["--version"]),
+            ("mysql", "mysqld", ["--version"]),
+        ]:
+            exe = shutil.which(executable)
+            if not exe:
+                continue
+            try:
+                result = subprocess.run(
+                    [exe, *arguments], check=True, capture_output=True, text=True, timeout=10
+                )
+                binary_output = result.stdout + result.stderr
+                if executable == "mysqld" and "mariadb" in binary_output.lower():
+                    name = "mariadb"
+                found = re.search(r"\d+\.\d+(?:\.\d+)?", binary_output)
+                if not found:
+                    raise ValueError("Could not parse service binary version")
+                out.append(
+                    package(
+                        "Service",
+                        name,
+                        found.group(),
+                        exe,
+                        "service",
+                        executable=exe,
+                        evidence="local binary version",
+                    )
+                )
+            except (OSError, ValueError, subprocess.SubprocessError) as exc:
+                warnings.append(f"{executable} inventory failed: {exc}")
     return {
         "packages": list({p["id"]: p for p in out}.values()),
         "warnings": warnings,

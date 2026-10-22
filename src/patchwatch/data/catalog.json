@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-10-22T00:00:00Z",
+  "updated": "2026-10-22T18:30:00Z",
   "advisories": [
     {
       "id": "PW-2026-EMUDHRA",
@@ -90,6 +90,1906 @@
           "versions": ">=2019.3.9,<2026.10.18",
           "fixed": "2026.10.19",
           "instructions": "2026.10.18 fixes the security issue; 2026.10.19 is recommended for compatibility with unaffected roots."
+        }
+      ]
+    },
+    {
+      "id": "CVE-2013-2028",
+      "summary": "nginx chunked request parsing can corrupt memory",
+      "severity": "high",
+      "references": [
+        "https://cveawg.mitre.org/api/cve/CVE-2013-2028",
+        "https://nginx.org/en/security_advisories.html"
+      ],
+      "affected": [
+        {
+          "ecosystem": "Service",
+          "package": "nginx",
+          "versions": ">=1.3.9,<1.4.1",
+          "fixed": "1.4.1",
+          "instructions": "Check vendor and distribution patch status, then update through the service package manager. Validate the service configuration before restarting."
+        }
+      ]
+    },
+    {
+      "id": "CVE-2021-23017",
+      "summary": "nginx DNS resolver memory overwrite",
+      "severity": "high",
+      "references": [
+        "https://cveawg.mitre.org/api/cve/CVE-2021-23017",
+        "https://nginx.org/en/security_advisories.html"
+      ],
+      "affected": [
+        {
+          "ecosystem": "Service",
+          "package": "nginx",
+          "versions": ">=0.6.18,<1.20.1",
+          "fixed": "1.20.1",
+          "instructions": "Check vendor and distribution patch status, then update through the service package manager. Validate the service configuration before restarting."
+        }
+      ]
+    },
+    {
+      "id": "CVE-2021-41773",
+      "summary": "Apache HTTP Server path traversal",
+      "severity": "high",
+      "references": [
+        "https://cveawg.mitre.org/api/cve/CVE-2021-41773",
+        "https://httpd.apache.org/security/vulnerabilities_24.html"
+      ],
+      "affected": [
+        {
+          "ecosystem": "Service",
+          "package": "httpd",
+          "versions": "==2.4.49",
+          "fixed": "2.4.51",
+          "instructions": "Check vendor and distribution patch status, then update through the service package manager. Validate the service configuration before restarting."
+        }
+      ]
+    },
+    {
+      "id": "CVE-2021-42013",
+      "summary": "Apache HTTP Server traversal and code execution",
+      "severity": "critical",
+      "references": [
+        "https://cveawg.mitre.org/api/cve/CVE-2021-42013",
+        "https://httpd.apache.org/security/vulnerabilities_24.html"
+      ],
+      "affected": [
+        {
+          "ecosystem": "Service",
+          "package": "httpd",
+          "versions": ">=2.4.49,<=2.4.50",
+          "fixed": "2.4.51",
+          "instructions": "Check vendor and distribution patch status, then update through the service package manager. Validate the service configuration before restarting."
+        }
+      ]
+    },
+    {
+      "id": "GHSA-9hjg-9r4m-mvj7",
+      "aliases": [
+        "CVE-2024-47081",
+        "PYSEC-2026-1872"
+      ],
+      "summary": "Requests vulnerable to .netrc credentials leak via malicious URLs",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-9hjg-9r4m-mvj7",
+        "https://github.com/psf/requests/security/advisories/GHSA-9hjg-9r4m-mvj7",
+        "https://nvd.nist.gov/vuln/detail/CVE-2024-47081",
+        "https://github.com/psf/requests/pull/6965",
+        "https://github.com/psf/requests/commit/96ba401c1296ab1dda74a2365ef36d88f7d144ef",
+        "https://github.com/advisories/GHSA-9hjg-9r4m-mvj7",
+        "https://github.com/psf/requests",
+        "https://github.com/psf/requests/releases/tag/v2.32.4",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/requests/PYSEC-2026-1872.yaml",
+        "https://pypi.org/project/requests",
+        "https://requests.readthedocs.io/en/latest/api/#requests.Session.trust_env",
+        "https://seclists.org/fulldisclosure/2025/Jun/2"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "requests",
+          "versions": "<2.32.4",
+          "fixed": "2.32.4"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-9wx4-h78v-vm56",
+      "aliases": [
+        "CVE-2024-35195",
+        "PYSEC-2026-1873"
+      ],
+      "summary": "Requests `Session` object does not verify requests after making first request with verify=False",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-9wx4-h78v-vm56",
+        "https://github.com/psf/requests/security/advisories/GHSA-9wx4-h78v-vm56",
+        "https://nvd.nist.gov/vuln/detail/CVE-2024-35195",
+        "https://github.com/psf/requests/pull/6655",
+        "https://github.com/psf/requests/commit/a58d7f2ffb4d00b46dca2d70a3932a0b37e22fac",
+        "https://github.com/psf/requests",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/IYLSNK5TL46Q6XPRVMHVWS63MVJQOK4Q",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/N7WP6EYDSUOCOJYHDK5NX43PYZ4SNHGZ"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "requests",
+          "versions": "<2.32.0",
+          "fixed": "2.32.0"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-gc5v-m9x4-r6x2",
+      "aliases": [
+        "CVE-2026-25645",
+        "PYSEC-2026-2275"
+      ],
+      "summary": "Requests has Insecure Temp File Reuse in its extract_zipped_paths() utility function",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-gc5v-m9x4-r6x2",
+        "https://github.com/psf/requests/security/advisories/GHSA-gc5v-m9x4-r6x2",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-25645",
+        "https://github.com/psf/requests/commit/66d21cb07bd6255b1280291c4fafb71803cdb3b7",
+        "https://github.com/psf/requests",
+        "https://github.com/psf/requests/releases/tag/v2.33.0"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "requests",
+          "versions": "<2.33.0",
+          "fixed": "2.33.0"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-j8r2-6x86-q33q",
+      "aliases": [
+        "CVE-2023-32681",
+        "PYSEC-2023-74"
+      ],
+      "summary": "Unintended leak of Proxy-Authorization header in requests",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-j8r2-6x86-q33q",
+        "https://github.com/psf/requests/security/advisories/GHSA-j8r2-6x86-q33q",
+        "https://nvd.nist.gov/vuln/detail/CVE-2023-32681",
+        "https://github.com/psf/requests/commit/74ea7cf7a6a27a4eeb2ae24e162bcc942a6706d5",
+        "https://github.com/psf/requests",
+        "https://github.com/psf/requests/releases/tag/v2.31.0",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/requests/PYSEC-2023-74.yaml",
+        "https://lists.debian.org/debian-lts-announce/2023/06/msg00018.html",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/AW7HNFGYP44RT3DUDQXG2QT3OEV2PJ7Y",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/KOYASTZDGQG2BWLSNBPL3TQRL2G7QYNZ",
+        "https://security.gentoo.org/glsa/202309-08"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "requests",
+          "versions": ">=2.3.0,<2.31.0",
+          "fixed": "2.31.0"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-x84v-xcm2-53pg",
+      "aliases": [
+        "CVE-2018-18074",
+        "PYSEC-2018-28"
+      ],
+      "summary": "Insufficiently Protected Credentials in Requests",
+      "severity": "high",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-x84v-xcm2-53pg",
+        "https://nvd.nist.gov/vuln/detail/CVE-2018-18074",
+        "https://github.com/requests/requests/issues/4716",
+        "https://github.com/requests/requests/pull/4718",
+        "https://github.com/requests/requests/commit/c45d7c49ea75133e52ab22a8e9e13173938e36ff",
+        "https://access.redhat.com/errata/RHSA-2019:2035",
+        "https://bugs.debian.org/910766",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/requests/PYSEC-2018-28.yaml",
+        "https://github.com/requests/requests",
+        "https://usn.ubuntu.com/3790-1",
+        "https://usn.ubuntu.com/3790-2",
+        "https://www.oracle.com/security-alerts/cpujul2022.html"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "requests",
+          "versions": "<2.20.0",
+          "fixed": "2.20.0"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-2xpw-w6gg-jr37",
+      "aliases": [
+        "CVE-2025-66471",
+        "PYSEC-2026-1994"
+      ],
+      "summary": "urllib3 streaming API improperly handles highly compressed data",
+      "severity": "high",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-2xpw-w6gg-jr37",
+        "https://github.com/urllib3/urllib3/security/advisories/GHSA-2xpw-w6gg-jr37",
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-66471",
+        "https://github.com/urllib3/urllib3/commit/c19571de34c47de3a766541b041637ba5f716ed7",
+        "https://github.com/urllib3/urllib3/commit/d0fde3672e4a4093f7587858dccfc298eb66e46c",
+        "https://github.com/advisories/GHSA-2xpw-w6gg-jr37",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/urllib3/PYSEC-2026-1994.yaml",
+        "https://github.com/urllib3/urllib3",
+        "https://pypi.org/project/urllib3"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "urllib3",
+          "versions": ">=1.0,<2.6.0",
+          "fixed": "2.6.0"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-34jh-p97f-mpxf",
+      "aliases": [
+        "CVE-2024-37891",
+        "PYSEC-2026-1995"
+      ],
+      "summary": "urllib3's Proxy-Authorization request header isn't stripped during cross-origin redirects",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-34jh-p97f-mpxf",
+        "https://github.com/urllib3/urllib3/security/advisories/GHSA-34jh-p97f-mpxf",
+        "https://nvd.nist.gov/vuln/detail/CVE-2024-37891",
+        "https://github.com/urllib3/urllib3/commit/40b6d1605814dd1db0a46e202d6e56f2e4c9a468",
+        "https://github.com/urllib3/urllib3/commit/accff72ecc2f6cf5a76d9570198a93ac7c90270e",
+        "https://github.com/urllib3/urllib3",
+        "https://lists.debian.org/debian-lts-announce/2024/12/msg00020.html",
+        "https://security.netapp.com/advisory/ntap-20240822-0003",
+        "https://www.vicarius.io/vsociety/posts/proxy-authorization-header-handling-vulnerability-in-urllib3-cve-2024-37891"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "urllib3",
+          "versions": "<1.26.19",
+          "fixed": "1.26.19"
+        },
+        {
+          "ecosystem": "PyPI",
+          "package": "urllib3",
+          "versions": ">=2.0.0,<2.2.2",
+          "fixed": "2.2.2"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-38jv-5279-wg99",
+      "aliases": [
+        "CVE-2026-21441",
+        "PYSEC-2026-1996"
+      ],
+      "summary": "Decompression-bomb safeguards bypassed when following HTTP redirects (streaming API)",
+      "severity": "high",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-38jv-5279-wg99",
+        "https://github.com/urllib3/urllib3/security/advisories/GHSA-38jv-5279-wg99",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-21441",
+        "https://github.com/urllib3/urllib3/commit/8864ac407bba8607950025e0979c4c69bc7abc7b",
+        "https://github.com/urllib3/urllib3",
+        "https://lists.debian.org/debian-lts-announce/2026/01/msg00017.html"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "urllib3",
+          "versions": ">=1.22,<2.6.3",
+          "fixed": "2.6.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-g4mx-q9vg-27p4",
+      "aliases": [
+        "CVE-2023-45803",
+        "PYSEC-2023-212"
+      ],
+      "summary": "urllib3's request body not stripped after redirect from 303 status changes request method to GET",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-g4mx-q9vg-27p4",
+        "https://github.com/urllib3/urllib3/security/advisories/GHSA-g4mx-q9vg-27p4",
+        "https://nvd.nist.gov/vuln/detail/CVE-2023-45803",
+        "https://github.com/urllib3/urllib3/commit/4e50fbc5db74e32cabd5ccc1ab81fc103adfe0b3",
+        "https://github.com/urllib3/urllib3/commit/4e98d57809dacab1cbe625fddeec1a290c478ea9",
+        "https://github.com/urllib3/urllib3/commit/b594c5ceaca38e1ac215f916538fb128e3526a36",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/urllib3/PYSEC-2023-212.yaml",
+        "https://github.com/urllib3/urllib3",
+        "https://github.com/urllib3/urllib3/releases/tag/1.26.18",
+        "https://github.com/urllib3/urllib3/releases/tag/2.0.7",
+        "https://lists.debian.org/debian-lts-announce/2024/12/msg00020.html",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4R2Y5XK3WALSR3FNAGN7JBYV2B343ZKB",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/5F5CUBAN5XMEBVBZPHFITBLMJV5FIJJ5",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/PPDPLM6UUMN55ESPQWJFLLIZY4ZKCNRX",
+        "https://www.rfc-editor.org/rfc/rfc9110.html#name-get"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "urllib3",
+          "versions": ">=2.0.0,<2.0.7",
+          "fixed": "2.0.7"
+        },
+        {
+          "ecosystem": "PyPI",
+          "package": "urllib3",
+          "versions": "<1.26.18",
+          "fixed": "1.26.18"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-gm62-xv2j-4w53",
+      "aliases": [
+        "CVE-2025-66418",
+        "PYSEC-2026-1998"
+      ],
+      "summary": "urllib3 allows an unbounded number of links in the decompression chain",
+      "severity": "high",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-gm62-xv2j-4w53",
+        "https://github.com/urllib3/urllib3/security/advisories/GHSA-gm62-xv2j-4w53",
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-66418",
+        "https://github.com/urllib3/urllib3/commit/24d7b67eac89f94e11003424bcf0d8f7b72222a8",
+        "https://github.com/urllib3/urllib3"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "urllib3",
+          "versions": ">=1.24,<2.6.0",
+          "fixed": "2.6.0"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-gwvm-45gx-3cf8",
+      "aliases": [
+        "CVE-2018-25091",
+        "PYSEC-2023-207"
+      ],
+      "summary": "Authorization Header forwarded on redirect",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-gwvm-45gx-3cf8",
+        "https://nvd.nist.gov/vuln/detail/CVE-2018-25091",
+        "https://github.com/urllib3/urllib3/issues/1510",
+        "https://github.com/urllib3/urllib3/commit/adb358f8e06865406d1f05e581a16cbea2136fbc",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/urllib3/PYSEC-2023-207.yaml",
+        "https://github.com/urllib3/urllib3",
+        "https://github.com/urllib3/urllib3/compare/1.24.1...1.24.2"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "urllib3",
+          "versions": "<1.24.2",
+          "fixed": "1.24.2"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-mh33-7rrq-662w",
+      "aliases": [
+        "CVE-2019-11324",
+        "PYSEC-2019-133"
+      ],
+      "summary": "Improper Certificate Validation in urllib3",
+      "severity": "high",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-mh33-7rrq-662w",
+        "https://nvd.nist.gov/vuln/detail/CVE-2019-11324",
+        "https://github.com/urllib3/urllib3/commit/1efadf43dc63317cd9eaa3e0fdb9e05ab07254b1",
+        "https://access.redhat.com/errata/RHSA-2019:3335",
+        "https://access.redhat.com/errata/RHSA-2019:3590",
+        "https://github.com/advisories/GHSA-mh33-7rrq-662w",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/urllib3/PYSEC-2019-133.yaml",
+        "https://github.com/urllib3/urllib3",
+        "https://github.com/urllib3/urllib3/compare/a6ec68a...1efadf4",
+        "https://lists.debian.org/debian-lts-announce/2021/06/msg00015.html",
+        "https://lists.debian.org/debian-lts-announce/2023/10/msg00012.html",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/NKGPJLVLVYCL4L4B4G5TIOTVK4BKPG72",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/XOSA2NT4DUQDBEIWE6O7KKD24XND7TE2",
+        "https://pypi.org/project/urllib3/1.24.2",
+        "https://usn.ubuntu.com/3990-1"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "urllib3",
+          "versions": "<1.24.2",
+          "fixed": "1.24.2"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-pq67-6m6q-mj2v",
+      "aliases": [
+        "CVE-2025-50181",
+        "PYSEC-2026-1999"
+      ],
+      "summary": "urllib3 redirects are not disabled when retries are disabled on PoolManager instantiation",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-pq67-6m6q-mj2v",
+        "https://github.com/urllib3/urllib3/security/advisories/GHSA-pq67-6m6q-mj2v",
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-50181",
+        "https://github.com/urllib3/urllib3/commit/f05b1329126d5be6de501f9d1e3e36738bc08857",
+        "https://github.com/urllib3/urllib3",
+        "https://github.com/urllib3/urllib3/releases/tag/2.5.0"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "urllib3",
+          "versions": "<2.5.0",
+          "fixed": "2.5.0"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-qccp-gfcp-xxvc",
+      "aliases": [
+        "CVE-2026-44431",
+        "PYSEC-2026-141"
+      ],
+      "summary": "urllib3: Sensitive headers forwarded across origins in proxied low-level redirects",
+      "severity": "high",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-qccp-gfcp-xxvc",
+        "https://github.com/urllib3/urllib3/security/advisories/GHSA-qccp-gfcp-xxvc",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-44431",
+        "https://github.com/urllib3/urllib3"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "urllib3",
+          "versions": ">=1.23,<2.7.0",
+          "fixed": "2.7.0"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-r64q-w8jr-g9qp",
+      "aliases": [
+        "CVE-2019-11236",
+        "PYSEC-2019-132"
+      ],
+      "summary": "Improper Neutralization of CRLF Sequences in urllib3 library for Python",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-r64q-w8jr-g9qp",
+        "https://nvd.nist.gov/vuln/detail/CVE-2019-11236",
+        "https://github.com/urllib3/urllib3/issues/1553",
+        "https://usn.ubuntu.com/3990-2",
+        "https://usn.ubuntu.com/3990-1",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/XOSA2NT4DUQDBEIWE6O7KKD24XND7TE2",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TBI45HO533KYHNB5YRO43TBYKA3E3VRL",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/R62XGEYPUTXMRHGX5I37EBCGQ5COHGKR",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/NKGPJLVLVYCL4L4B4G5TIOTVK4BKPG72",
+        "https://lists.debian.org/debian-lts-announce/2023/10/msg00012.html",
+        "https://lists.debian.org/debian-lts-announce/2021/06/msg00015.html",
+        "https://lists.debian.org/debian-lts-announce/2019/06/msg00016.html",
+        "https://github.com/urllib3/urllib3",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/urllib3/PYSEC-2019-132.yaml",
+        "https://github.com/advisories/GHSA-r64q-w8jr-g9qp",
+        "https://access.redhat.com/errata/RHSA-2019:3590",
+        "https://access.redhat.com/errata/RHSA-2019:3335",
+        "https://access.redhat.com/errata/RHSA-2019:2272"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "urllib3",
+          "versions": "<1.24.3",
+          "fixed": "1.24.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-v845-jxx5-vc9f",
+      "aliases": [
+        "CVE-2023-43804",
+        "PYSEC-2023-192"
+      ],
+      "summary": "`Cookie` HTTP header isn't stripped on cross-origin redirects",
+      "severity": "high",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-v845-jxx5-vc9f",
+        "https://github.com/urllib3/urllib3/security/advisories/GHSA-v845-jxx5-vc9f",
+        "https://nvd.nist.gov/vuln/detail/CVE-2023-43804",
+        "https://github.com/urllib3/urllib3/commit/01220354d389cd05474713f8c982d05c9b17aafb",
+        "https://github.com/urllib3/urllib3/commit/644124ecd0b6e417c527191f866daa05a5a2056d",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/urllib3/PYSEC-2023-192.yaml",
+        "https://github.com/urllib3/urllib3",
+        "https://lists.debian.org/debian-lts-announce/2023/10/msg00012.html",
+        "https://lists.debian.org/debian-lts-announce/2024/12/msg00020.html",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/5F5CUBAN5XMEBVBZPHFITBLMJV5FIJJ5",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/I3PR7C6RJ6JUBQKIJ644DMIJSUP36VDY",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/NDAGZXYJ7H2G3SB47M453VQVNAWKAEJJ",
+        "https://security.netapp.com/advisory/ntap-20241213-0007",
+        "https://www.vicarius.io/vsociety/posts/cve-2023-43804-urllib3-vulnerability-3"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "urllib3",
+          "versions": ">=2.0.0,<2.0.6",
+          "fixed": "2.0.6"
+        },
+        {
+          "ecosystem": "PyPI",
+          "package": "urllib3",
+          "versions": "<1.26.17",
+          "fixed": "1.26.17"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-vxq7-64xx-v4gw",
+      "aliases": [
+        "CVE-2026-97689",
+        "PYSEC-2026-4177"
+      ],
+      "summary": "urllib3: HTTPResponse.stream()/read_chunked() buffers an unbounded chunk-size line into memory",
+      "severity": "high",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-vxq7-64xx-v4gw",
+        "https://github.com/urllib3/urllib3/security/advisories/GHSA-vxq7-64xx-v4gw",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-97689",
+        "https://github.com/urllib3/urllib3/commit/cd770b059b543be29298ea5c52afb0b1b090f5ed",
+        "https://github.com/urllib3/urllib3",
+        "https://github.com/urllib3/urllib3/releases/tag/2.8.0"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "urllib3",
+          "versions": ">=1.10.3,<2.8.0",
+          "fixed": "2.8.0"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-wqvq-5m8c-6g24",
+      "aliases": [
+        "CVE-2020-26137",
+        "PYSEC-2020-148"
+      ],
+      "summary": "CRLF injection in urllib3",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-wqvq-5m8c-6g24",
+        "https://nvd.nist.gov/vuln/detail/CVE-2020-26137",
+        "https://github.com/urllib3/urllib3/pull/1800",
+        "https://github.com/urllib3/urllib3/commit/1dd69c5c5982fae7c87a620d487c2ebf7a6b436b",
+        "https://bugs.python.org/issue39603",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/urllib3/PYSEC-2020-148.yaml",
+        "https://github.com/urllib3/urllib3",
+        "https://lists.debian.org/debian-lts-announce/2021/06/msg00015.html",
+        "https://lists.debian.org/debian-lts-announce/2023/10/msg00012.html",
+        "https://usn.ubuntu.com/4570-1",
+        "https://www.oracle.com/security-alerts/cpujul2022.html",
+        "https://www.oracle.com/security-alerts/cpuoct2021.html"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "urllib3",
+          "versions": "<1.25.9",
+          "fixed": "1.25.9"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-8q59-q68h-6hv4",
+      "aliases": [
+        "CVE-2020-14343",
+        "PYSEC-2021-142"
+      ],
+      "summary": "Improper Input Validation in PyYAML",
+      "severity": "critical",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-8q59-q68h-6hv4",
+        "https://nvd.nist.gov/vuln/detail/CVE-2020-14343",
+        "https://github.com/SeldonIO/seldon-core/issues/2252",
+        "https://github.com/yaml/pyyaml/issues/420",
+        "https://github.com/yaml/pyyaml/issues/420#issuecomment-663673966",
+        "https://github.com/yaml/pyyaml/commit/a001f2782501ad2d24986959f0239a354675f9dc",
+        "https://bugzilla.redhat.com/show_bug.cgi?id=1860466",
+        "https://github.com/advisories/GHSA-8q59-q68h-6hv4",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/pyyaml/PYSEC-2021-142.yaml",
+        "https://github.com/yaml/pyyaml",
+        "https://pypi.org/project/PyYAML",
+        "https://www.oracle.com/security-alerts/cpuapr2022.html",
+        "https://www.oracle.com/security-alerts/cpujul2022.html"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "pyyaml",
+          "versions": "<5.4",
+          "fixed": "5.4"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-rprw-h62v-c2w7",
+      "aliases": [
+        "CVE-2017-18342",
+        "PYSEC-2018-49"
+      ],
+      "summary": "PyYAML insecurely deserializes YAML strings leading to arbitrary code execution",
+      "severity": "critical",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-rprw-h62v-c2w7",
+        "https://nvd.nist.gov/vuln/detail/CVE-2017-18342",
+        "https://github.com/marshmallow-code/apispec/issues/278",
+        "https://github.com/yaml/pyyaml/issues/193",
+        "https://github.com/yaml/pyyaml/issues/207#issuecomment-472520007",
+        "https://github.com/yaml/pyyaml/pull/74",
+        "https://github.com/yaml/pyyaml/commit/7b68405c81db889f83c32846462b238ccae5be80",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/pyyaml/PYSEC-2018-49.yaml",
+        "https://github.com/yaml/pyyaml",
+        "https://github.com/yaml/pyyaml/blob/master/CHANGES",
+        "https://github.com/yaml/pyyaml/wiki/PyYAML-yaml.load(input)-Deprecation",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/JEX7IPV5P2QJITAMA5Z63GQCZA5I6NVZ",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/KSQQMRUQSXBSUXLCRD3TSZYQ7SEZRKCE",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/M6JCFGEIEOFMWWIXGHSELMKQDD4CV2BA",
+        "https://security.gentoo.org/glsa/202003-45"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "pyyaml",
+          "versions": "<5.1",
+          "fixed": "5.1"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-462w-v97r-4m45",
+      "aliases": [
+        "CVE-2019-10906",
+        "PYSEC-2019-217"
+      ],
+      "summary": "Jinja2 sandbox escape via string formatting",
+      "severity": "high",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-462w-v97r-4m45",
+        "https://nvd.nist.gov/vuln/detail/CVE-2019-10906",
+        "https://usn.ubuntu.com/4011-2",
+        "https://usn.ubuntu.com/4011-1",
+        "https://palletsprojects.com/blog/jinja-2-10-1-released",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TS7IVZAJBWOHNRDMFJDIZVFCMRP6YIUQ",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/QCDYIS254EJMBNWOG4S5QY6AOTOR4TZU",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/DSW3QZMFVVR7YE3UT4YRQA272TYAL5AF",
+        "https://lists.apache.org/thread.html/f0c4a03418bcfe70c539c5dbaf99c04c98da13bfa1d3266f08564316@%3Ccommits.airflow.apache.org%3E",
+        "https://lists.apache.org/thread.html/b2380d147b508bbcb90d2cad443c159e63e12555966ab4f320ee22da@%3Ccommits.airflow.apache.org%3E",
+        "https://lists.apache.org/thread.html/7f39f01392d320dfb48e4901db68daeece62fd60ef20955966739993@%3Ccommits.airflow.apache.org%3E",
+        "https://lists.apache.org/thread.html/57673a78c4d5c870d3f21465c7e2946b9f8285c7c57e54c2ae552f02@%3Ccommits.airflow.apache.org%3E",
+        "https://lists.apache.org/thread.html/46c055e173b52d599c648a98199972dbd6a89d2b4c4647b0500f2284@%3Cdevnull.infra.apache.org%3E",
+        "https://lists.apache.org/thread.html/320441dccbd9a545320f5f07306d711d4bbd31ba43dc9eebcfc602df@%3Cdevnull.infra.apache.org%3E",
+        "https://lists.apache.org/thread.html/2b52b9c8b9d6366a4f1b407a8bde6af28d9fc73fdb3b37695fd0d9ac@%3Cdevnull.infra.apache.org%3E",
+        "https://lists.apache.org/thread.html/09fc842ff444cd43d9d4c510756fec625ef8eb1175f14fd21de2605f@%3Cdevnull.infra.apache.org%3E",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/jinja2/PYSEC-2019-217.yaml",
+        "https://github.com/pallets/jinja",
+        "https://github.com/advisories/GHSA-462w-v97r-4m45",
+        "https://access.redhat.com/errata/RHSA-2019:1329",
+        "https://access.redhat.com/errata/RHSA-2019:1237",
+        "https://access.redhat.com/errata/RHSA-2019:1152"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "jinja2",
+          "versions": "<2.10.1",
+          "fixed": "2.10.1"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-cpwx-vrp4-4pq7",
+      "aliases": [
+        "CVE-2025-27516",
+        "PYSEC-2026-1471"
+      ],
+      "summary": "Jinja2 vulnerable to sandbox breakout through attr filter selecting format method",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-cpwx-vrp4-4pq7",
+        "https://github.com/pallets/jinja/security/advisories/GHSA-cpwx-vrp4-4pq7",
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-27516",
+        "https://github.com/pallets/jinja/commit/90457bbf33b8662926ae65cdde4c4c32e756e403",
+        "https://github.com/pallets/jinja",
+        "https://lists.debian.org/debian-lts-announce/2025/04/msg00022.html",
+        "https://lists.debian.org/debian-lts-announce/2025/04/msg00045.html"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "jinja2",
+          "versions": "<3.1.6",
+          "fixed": "3.1.6"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-g3rq-g295-4j3m",
+      "aliases": [
+        "CVE-2020-28493",
+        "PYSEC-2021-66",
+        "SNYK-PYTHON-JINJA2-1012994"
+      ],
+      "summary": "Regular Expression Denial of Service (ReDoS) in Jinja2",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-g3rq-g295-4j3m",
+        "https://nvd.nist.gov/vuln/detail/CVE-2020-28493",
+        "https://github.com/pallets/jinja/pull/1343",
+        "https://github.com/pallets/jinja/commit/15ef8f09b659f9100610583938005a7a10472d4d",
+        "https://github.com/advisories/GHSA-g3rq-g295-4j3m",
+        "https://github.com/pallets/jinja",
+        "https://github.com/pallets/jinja/blob/ab81fd9c277900c85da0c322a2ff9d68a235b2e6/src/jinja2/utils.py%23L20",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/jinja2/PYSEC-2021-66.yaml",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/PVAKCOO7VBVUBM3Q6CBBTPBFNP5NDXF4",
+        "https://security.gentoo.org/glsa/202107-19",
+        "https://snyk.io/vuln/SNYK-PYTHON-JINJA2-1012994"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "jinja2",
+          "versions": "<2.11.3",
+          "fixed": "2.11.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-h5c8-rqwp-cp95",
+      "aliases": [
+        "CVE-2024-22195",
+        "PYSEC-2026-1473"
+      ],
+      "summary": "Jinja vulnerable to HTML attribute injection when passing user input as keys to xmlattr filter",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-h5c8-rqwp-cp95",
+        "https://github.com/pallets/jinja/security/advisories/GHSA-h5c8-rqwp-cp95",
+        "https://nvd.nist.gov/vuln/detail/CVE-2024-22195",
+        "https://github.com/pallets/jinja/commit/716795349a41d4983a9a4771f7d883c96ea17be7",
+        "https://github.com/pallets/jinja",
+        "https://github.com/pallets/jinja/releases/tag/3.1.3",
+        "https://lists.debian.org/debian-lts-announce/2024/01/msg00010.html",
+        "https://lists.debian.org/debian-lts-announce/2024/12/msg00009.html",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/5XCWZD464AJJJUBOO7CMPXQ4ROBC6JX2",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/DELCVUUYX75I5K4Q5WMJG4MUZJA6VAIP",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/O7YWRBX6JQCWC2XXCTZ55C7DPMGICCN3"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "jinja2",
+          "versions": "<3.1.3",
+          "fixed": "3.1.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-h75v-3vvj-5mfj",
+      "aliases": [
+        "CVE-2024-34064",
+        "PYSEC-2026-1474"
+      ],
+      "summary": "Jinja vulnerable to HTML attribute injection when passing user input as keys to xmlattr filter",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-h75v-3vvj-5mfj",
+        "https://github.com/pallets/jinja/security/advisories/GHSA-h75v-3vvj-5mfj",
+        "https://nvd.nist.gov/vuln/detail/CVE-2024-34064",
+        "https://github.com/pallets/jinja/commit/0668239dc6b44ef38e7a6c9f91f312fd4ca581cb",
+        "https://github.com/pallets/jinja",
+        "https://lists.debian.org/debian-lts-announce/2024/12/msg00009.html",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/567XIGSZMABG6TSMYWD7MIYNJSUQQRUC",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/GCLF44KY43BSVMTE6S53B4V5WP3FRRSE",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SSCBHIL6BYKR5NRCBXP4XMP2CEEKGFVS",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZALNWE3TXPPHVPSI3AZ5CTMSTAVN5UMS"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "jinja2",
+          "versions": "<3.1.4",
+          "fixed": "3.1.4"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-q2x7-8rv6-6q7h",
+      "aliases": [
+        "CVE-2024-56326",
+        "PYSEC-2026-1475"
+      ],
+      "summary": "Jinja has a sandbox breakout through indirect reference to format method",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-q2x7-8rv6-6q7h",
+        "https://github.com/pallets/jinja/security/advisories/GHSA-q2x7-8rv6-6q7h",
+        "https://nvd.nist.gov/vuln/detail/CVE-2024-56326",
+        "https://github.com/pallets/jinja/commit/48b0687e05a5466a91cd5812d604fa37ad0943b4",
+        "https://github.com/pallets/jinja",
+        "https://github.com/pallets/jinja/releases/tag/3.1.5",
+        "https://lists.debian.org/debian-lts-announce/2025/04/msg00022.html"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "jinja2",
+          "versions": "<3.1.5",
+          "fixed": "3.1.5"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-29mw-wpgm-hmr9",
+      "aliases": [
+        "CVE-2020-28500"
+      ],
+      "summary": "Regular Expression Denial of Service (ReDoS) in lodash",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-29mw-wpgm-hmr9",
+        "https://nvd.nist.gov/vuln/detail/CVE-2020-28500",
+        "https://github.com/github/advisory-database/pull/6139",
+        "https://github.com/lodash/lodash/pull/5065",
+        "https://github.com/lodash/lodash/pull/5065/commits/02906b8191d3c100c193fe6f7b27d1c40f200bb7",
+        "https://github.com/lodash/lodash/commit/c4847ebe7d14540bb28a8b932a9ce1b9ecbfee1a",
+        "https://www.oracle.com/security-alerts/cpuoct2021.html",
+        "https://www.oracle.com/security-alerts/cpujul2022.html",
+        "https://www.oracle.com/security-alerts/cpujan2022.html",
+        "https://www.oracle.com//security-alerts/cpujul2021.html",
+        "https://snyk.io/vuln/SNYK-JS-LODASH-1018905",
+        "https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-1074893",
+        "https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSBOWERGITHUBLODASH-1074895",
+        "https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSBOWER-1074892",
+        "https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARS-1074894",
+        "https://snyk.io/vuln/SNYK-JAVA-ORGFUJIONWEBJARS-1074896",
+        "https://security.netapp.com/advisory/ntap-20210312-0006",
+        "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/lodash-rails/CVE-2020-28500.yml",
+        "https://github.com/lodash/lodash/blob/npm/trimEnd.js%23L8",
+        "https://github.com/lodash/lodash",
+        "https://cert-portal.siemens.com/productcert/pdf/ssa-637483.pdf"
+      ],
+      "affected": [
+        {
+          "ecosystem": "npm",
+          "package": "lodash",
+          "versions": ">=4.0.0,<4.17.21",
+          "fixed": "4.17.21"
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash-es",
+          "versions": ">=4.0.0,<4.17.21",
+          "fixed": "4.17.21"
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash.trimend",
+          "versions": ">=4.0.0,<=4.5.1",
+          "fixed": null
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash.trim",
+          "versions": ">=4.0.0,<=4.5.1",
+          "fixed": null
+        }
+      ]
+    },
+    {
+      "id": "GHSA-35jh-r3h4-6jhm",
+      "aliases": [
+        "CVE-2021-23337"
+      ],
+      "summary": "Command Injection in lodash",
+      "severity": "high",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-35jh-r3h4-6jhm",
+        "https://nvd.nist.gov/vuln/detail/CVE-2021-23337",
+        "https://github.com/lodash/lodash/commit/3469357cff396a26c363f8c1b5a91dde28ba4b1c",
+        "https://www.oracle.com/security-alerts/cpuoct2021.html",
+        "https://www.oracle.com/security-alerts/cpujul2022.html",
+        "https://www.oracle.com/security-alerts/cpujan2022.html",
+        "https://www.oracle.com//security-alerts/cpujul2021.html",
+        "https://snyk.io/vuln/SNYK-JS-LODASH-1040724",
+        "https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-1074929",
+        "https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSBOWERGITHUBLODASH-1074931",
+        "https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSBOWER-1074928",
+        "https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARS-1074930",
+        "https://snyk.io/vuln/SNYK-JAVA-ORGFUJIONWEBJARS-1074932",
+        "https://security.netapp.com/advisory/ntap-20210312-0006",
+        "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/lodash-rails/CVE-2021-23337.yml",
+        "https://github.com/lodash/lodash/blob/ddfd9b11a0126db2302cb70ec9973b66baec0975/lodash.js#L14851",
+        "https://github.com/lodash/lodash",
+        "https://cert-portal.siemens.com/productcert/pdf/ssa-637483.pdf"
+      ],
+      "affected": [
+        {
+          "ecosystem": "npm",
+          "package": "lodash",
+          "versions": "<4.17.21",
+          "fixed": "4.17.21"
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash-es",
+          "versions": "<4.17.21",
+          "fixed": "4.17.21"
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash.template",
+          "versions": "<=4.5.0",
+          "fixed": null
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash-template",
+          "versions": "<=1.0.0",
+          "fixed": null
+        }
+      ]
+    },
+    {
+      "id": "GHSA-f23m-r3pf-42rh",
+      "aliases": [
+        "CVE-2026-2950"
+      ],
+      "summary": "lodash vulnerable to Prototype Pollution via array path bypass in `_.unset` and `_.omit`",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-f23m-r3pf-42rh",
+        "https://github.com/lodash/lodash/security/advisories/GHSA-f23m-r3pf-42rh",
+        "https://github.com/lodash/lodash/security/advisories/GHSA-xxjr-mmjv-4gpg",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-2950",
+        "https://github.com/lodash/lodash"
+      ],
+      "affected": [
+        {
+          "ecosystem": "npm",
+          "package": "lodash",
+          "versions": "<4.18.0",
+          "fixed": "4.18.0"
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash-es",
+          "versions": "<4.18.0",
+          "fixed": "4.18.0"
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash-amd",
+          "versions": "<4.18.0",
+          "fixed": "4.18.0"
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash.unset",
+          "versions": ">=4.0.0,<4.18.0",
+          "fixed": "4.18.0"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-jf85-cpcp-j695",
+      "aliases": [
+        "CVE-2019-10744",
+        "SNYK-JS-LODASH-450202"
+      ],
+      "summary": "Prototype Pollution in lodash",
+      "severity": "critical",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-jf85-cpcp-j695",
+        "https://nvd.nist.gov/vuln/detail/CVE-2019-10744",
+        "https://github.com/lodash/lodash/pull/4336",
+        "https://access.redhat.com/errata/RHSA-2019:3024",
+        "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/lodash-rails/CVE-2019-10744.yml",
+        "https://security.netapp.com/advisory/ntap-20191004-0005",
+        "https://snyk.io/vuln/SNYK-JS-LODASH-450202",
+        "https://support.f5.com/csp/article/K47105354?utm_source=f5support&amp%3Butm_medium=RSS",
+        "https://support.f5.com/csp/article/K47105354?utm_source=f5support&amp;utm_medium=RSS",
+        "https://www.oracle.com/security-alerts/cpujan2021.html",
+        "https://www.oracle.com/security-alerts/cpuoct2020.html"
+      ],
+      "affected": [
+        {
+          "ecosystem": "npm",
+          "package": "lodash",
+          "versions": "<4.17.12",
+          "fixed": "4.17.12"
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash-es",
+          "versions": "<4.17.14",
+          "fixed": "4.17.14"
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash-amd",
+          "versions": "<4.17.13",
+          "fixed": "4.17.13"
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash.defaultsdeep",
+          "versions": "<4.6.1",
+          "fixed": "4.6.1"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-p6mc-m468-83gw",
+      "aliases": [
+        "CVE-2020-8203"
+      ],
+      "summary": "Prototype Pollution in lodash",
+      "severity": "high",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-p6mc-m468-83gw",
+        "https://nvd.nist.gov/vuln/detail/CVE-2020-8203",
+        "https://github.com/lodash/lodash/issues/4744",
+        "https://github.com/lodash/lodash/issues/4874",
+        "https://github.com/github/advisory-database/pull/2884",
+        "https://github.com/lodash/lodash/commit/c84fe82760fb2d3e03a63379b297a1cc1a2fce12",
+        "https://hackerone.com/reports/712065",
+        "https://hackerone.com/reports/864701",
+        "https://github.com/lodash/lodash",
+        "https://github.com/lodash/lodash/wiki/Changelog#v41719",
+        "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/lodash-rails/CVE-2020-8203.yml",
+        "https://security.netapp.com/advisory/ntap-20200724-0006",
+        "https://web.archive.org/web/20210914001339/https://github.com/lodash/lodash/issues/4744"
+      ],
+      "affected": [
+        {
+          "ecosystem": "npm",
+          "package": "lodash",
+          "versions": ">=3.7.0,<4.17.19",
+          "fixed": "4.17.19"
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash-es",
+          "versions": ">=3.7.0,<4.17.20",
+          "fixed": "4.17.20"
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash.pick",
+          "versions": ">=4.0.0,<=4.4.0",
+          "fixed": null
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash.set",
+          "versions": ">=3.7.0,<=4.3.2",
+          "fixed": null
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash.setwith",
+          "versions": "<=4.3.2",
+          "fixed": null
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash.update",
+          "versions": "<=4.10.2",
+          "fixed": null
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash.updatewith",
+          "versions": "<=4.10.2",
+          "fixed": null
+        }
+      ]
+    },
+    {
+      "id": "GHSA-r5fr-rjxr-66jc",
+      "aliases": [
+        "CVE-2026-4800"
+      ],
+      "summary": "lodash vulnerable to Code Injection via `_.template` imports key names",
+      "severity": "high",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-r5fr-rjxr-66jc",
+        "https://github.com/lodash/lodash/security/advisories/GHSA-r5fr-rjxr-66jc",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-4800",
+        "https://github.com/lodash/lodash/commit/3469357cff396a26c363f8c1b5a91dde28ba4b1c",
+        "https://cna.openjsf.org/security-advisories.html",
+        "https://github.com/advisories/GHSA-35jh-r3h4-6jhm",
+        "https://github.com/lodash/lodash"
+      ],
+      "affected": [
+        {
+          "ecosystem": "npm",
+          "package": "lodash",
+          "versions": ">=4.0.0,<4.18.0",
+          "fixed": "4.18.0"
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash-es",
+          "versions": ">=4.0.0,<4.18.0",
+          "fixed": "4.18.0"
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash-amd",
+          "versions": ">=4.0.0,<4.18.0",
+          "fixed": "4.18.0"
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash.template",
+          "versions": ">=4.0.0,<4.18.0",
+          "fixed": "4.18.0"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-xxjr-mmjv-4gpg",
+      "aliases": [
+        "CVE-2025-13465"
+      ],
+      "summary": "Lodash has Prototype Pollution Vulnerability in `_.unset` and `_.omit` functions",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-xxjr-mmjv-4gpg",
+        "https://github.com/lodash/lodash/security/advisories/GHSA-xxjr-mmjv-4gpg",
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-13465",
+        "https://github.com/lodash/lodash/commit/edadd452146f7e4bad4ea684e955708931d84d81",
+        "https://cert-portal.siemens.com/productcert/html/ssa-253495.html",
+        "https://github.com/lodash/lodash"
+      ],
+      "affected": [
+        {
+          "ecosystem": "npm",
+          "package": "lodash",
+          "versions": ">=4.0.0,<4.17.23",
+          "fixed": "4.17.23"
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash.unset",
+          "versions": ">=4.0.0,<=4.5.2",
+          "fixed": null
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash-es",
+          "versions": ">=4.0.0,<4.17.23",
+          "fixed": "4.17.23"
+        },
+        {
+          "ecosystem": "npm",
+          "package": "lodash-amd",
+          "versions": ">=4.0.0,<4.17.23",
+          "fixed": "4.17.23"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-vh95-rmgr-6w4m",
+      "aliases": [
+        "CVE-2020-7598"
+      ],
+      "summary": "Prototype Pollution in minimist",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-vh95-rmgr-6w4m",
+        "https://nvd.nist.gov/vuln/detail/CVE-2020-7598",
+        "https://github.com/minimistjs/minimist/commit/10bd4cdf49d9686d48214be9d579a9cdfda37c68",
+        "https://github.com/minimistjs/minimist/commit/38a4d1caead72ef99e824bb420a2528eec03d9ab",
+        "https://github.com/minimistjs/minimist/commit/4cf1354839cb972e38496d35e12f806eea92c11f#diff-a1e0ee62c91705696ddb71aa30ad4f95",
+        "https://github.com/minimistjs/minimist/commit/63e7ed05aa4b1889ec2f3b196426db4500cbda94",
+        "https://github.com/substack/minimist",
+        "https://snyk.io/vuln/SNYK-JS-MINIMIST-559764",
+        "https://www.npmjs.com/advisories/1179"
+      ],
+      "affected": [
+        {
+          "ecosystem": "npm",
+          "package": "minimist",
+          "versions": "<0.2.1",
+          "fixed": "0.2.1"
+        },
+        {
+          "ecosystem": "npm",
+          "package": "minimist",
+          "versions": ">=1.0.0,<1.2.3",
+          "fixed": "1.2.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-xvch-5gv4-984h",
+      "aliases": [
+        "CVE-2021-44906"
+      ],
+      "summary": "Prototype Pollution in minimist",
+      "severity": "critical",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-xvch-5gv4-984h",
+        "https://nvd.nist.gov/vuln/detail/CVE-2021-44906",
+        "https://github.com/minimistjs/minimist/issues/11",
+        "https://github.com/substack/minimist/issues/164",
+        "https://github.com/minimistjs/minimist/pull/24",
+        "https://github.com/minimistjs/minimist/commit/34e20b8461118608703d6485326abbb8e35e1703",
+        "https://github.com/minimistjs/minimist/commit/bc8ecee43875261f4f17eb20b1243d3ed15e70eb",
+        "https://github.com/minimistjs/minimist/commit/c2b981977fa834b223b408cfb860f933c9811e4d",
+        "https://github.com/minimistjs/minimist/commit/ef9153fc52b6cea0744b2239921c5dcae4697f11",
+        "https://github.com/Marynk/JavaScript-vulnerability-detection/blob/main/minimist%20PoC.zip",
+        "https://github.com/minimistjs/minimist/commits/v0.2.4",
+        "https://github.com/substack/minimist",
+        "https://github.com/substack/minimist/blob/master/index.js#L69",
+        "https://security.netapp.com/advisory/ntap-20240621-0006",
+        "https://snyk.io/vuln/SNYK-JS-MINIMIST-559764",
+        "https://stackoverflow.com/questions/8588563/adding-custom-properties-to-a-function/20278068#20278068"
+      ],
+      "affected": [
+        {
+          "ecosystem": "npm",
+          "package": "minimist",
+          "versions": ">=1.0.0,<1.2.6",
+          "fixed": "1.2.6"
+        },
+        {
+          "ecosystem": "npm",
+          "package": "minimist",
+          "versions": "<0.2.4",
+          "fixed": "0.2.4"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-5c6j-r48x-rmvq",
+      "aliases": [],
+      "summary": "Serialize JavaScript is Vulnerable to RCE via RegExp.flags and Date.prototype.toISOString()",
+      "severity": "high",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-5c6j-r48x-rmvq",
+        "https://github.com/yahoo/serialize-javascript/security/advisories/GHSA-5c6j-r48x-rmvq",
+        "https://nvd.nist.gov/vuln/detail/CVE-2020-7660",
+        "https://github.com/yahoo/serialize-javascript/commit/2e609d0a9f4f5b097f0945af88bd45b9c7fb48d9",
+        "https://github.com/advisories/GHSA-hxcc-f52p-wc94",
+        "https://github.com/yahoo/serialize-javascript",
+        "https://github.com/yahoo/serialize-javascript/releases/tag/v7.0.3"
+      ],
+      "affected": [
+        {
+          "ecosystem": "npm",
+          "package": "serialize-javascript",
+          "versions": "<7.0.3",
+          "fixed": "7.0.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-h9rv-jmmf-4pgx",
+      "aliases": [
+        "CVE-2019-16769"
+      ],
+      "summary": "Cross-Site Scripting in serialize-javascript",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-h9rv-jmmf-4pgx",
+        "https://github.com/yahoo/serialize-javascript/security/advisories/GHSA-h9rv-jmmf-4pgx",
+        "https://nvd.nist.gov/vuln/detail/CVE-2019-16769",
+        "https://github.com/advisories/GHSA-h9rv-jmmf-4pgx",
+        "https://www.npmjs.com/advisories/1426"
+      ],
+      "affected": [
+        {
+          "ecosystem": "npm",
+          "package": "serialize-javascript",
+          "versions": "<2.1.1",
+          "fixed": "2.1.1"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-hxcc-f52p-wc94",
+      "aliases": [
+        "CVE-2020-7660"
+      ],
+      "summary": "Insecure serialization leading to RCE in serialize-javascript",
+      "severity": "high",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-hxcc-f52p-wc94",
+        "https://nvd.nist.gov/vuln/detail/CVE-2020-7660",
+        "https://github.com/yahoo/serialize-javascript/commit/f21a6fb3ace2353413761e79717b2d210ba6ccbd",
+        "https://github.com/yahoo/serialize-javascript"
+      ],
+      "affected": [
+        {
+          "ecosystem": "npm",
+          "package": "serialize-javascript",
+          "versions": "<3.1.0",
+          "fixed": "3.1.0"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-mh6f-8j2x-4483",
+      "aliases": [],
+      "summary": "Critical severity vulnerability that affects event-stream and flatmap-stream",
+      "severity": "critical",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-mh6f-8j2x-4483",
+        "https://github.com/dominictarr/event-stream/issues/116",
+        "https://github.com/advisories/GHSA-mh6f-8j2x-4483",
+        "https://github.com/dominictarr/event-stream"
+      ],
+      "affected": [
+        {
+          "ecosystem": "npm",
+          "package": "event-stream",
+          "instructions": "Remove the compromised release and rebuild the environment from reviewed dependencies. Rotate credentials accessible during its execution and investigate the affected host.",
+          "versions": ">=3.3.6,<4.0.0",
+          "fixed": "4.0.0"
+        },
+        {
+          "ecosystem": "npm",
+          "package": "flatmap-stream",
+          "instructions": "Remove the compromised release and rebuild the environment from reviewed dependencies. Rotate credentials accessible during its execution and investigate the affected host.",
+          "versions": ">=0",
+          "fixed": null
+        }
+      ]
+    },
+    {
+      "id": "GHSA-pjwm-rvh2-c87w",
+      "aliases": [
+        "CVE-2021-4229"
+      ],
+      "summary": "Embedded malware in ua-parser-js",
+      "severity": "high",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-pjwm-rvh2-c87w",
+        "https://github.com/faisalman/ua-parser-js/issues/536",
+        "https://github.com/faisalman/ua-parser-js/issues/536#issuecomment-949772496",
+        "https://github.com/faisalman/ua-parser-js",
+        "https://www.npmjs.com/package/ua-parser-js"
+      ],
+      "affected": [
+        {
+          "ecosystem": "npm",
+          "package": "ua-parser-js",
+          "instructions": "Remove the compromised release and rebuild the environment from reviewed dependencies. Rotate credentials accessible during its execution and investigate the affected host.",
+          "versions": ">=0.7.29,<0.7.30",
+          "fixed": "0.7.30"
+        },
+        {
+          "ecosystem": "npm",
+          "package": "ua-parser-js",
+          "instructions": "Remove the compromised release and rebuild the environment from reviewed dependencies. Rotate credentials accessible during its execution and investigate the affected host.",
+          "versions": ">=0.8.0,<0.8.1",
+          "fixed": "0.8.1"
+        },
+        {
+          "ecosystem": "npm",
+          "package": "ua-parser-js",
+          "instructions": "Remove the compromised release and rebuild the environment from reviewed dependencies. Rotate credentials accessible during its execution and investigate the affected host.",
+          "versions": ">=1.0.0,<1.0.1",
+          "fixed": "1.0.1"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-73qr-pfmq-6rp8",
+      "aliases": [],
+      "summary": "Embedded malware in coa",
+      "severity": "critical",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-73qr-pfmq-6rp8",
+        "https://github.com/veged/coa/issues/99",
+        "https://github.com/veged/coa",
+        "https://therecord.media/malware-found-in-coa-and-rc-two-npm-packages-with-23m-weekly-downloads",
+        "https://www.virustotal.com/gui/file/26451f7f6fe297adf6738295b1dcc70f7678434ef21d8b6aad5ec00beb8a72cf?nocache=1"
+      ],
+      "affected": [
+        {
+          "ecosystem": "npm",
+          "package": "coa",
+          "instructions": "Remove the compromised release and rebuild the environment from reviewed dependencies. Rotate credentials accessible during its execution and investigate the affected host.",
+          "versions": "==2.0.3",
+          "fixed": null
+        },
+        {
+          "ecosystem": "npm",
+          "package": "coa",
+          "instructions": "Remove the compromised release and rebuild the environment from reviewed dependencies. Rotate credentials accessible during its execution and investigate the affected host.",
+          "versions": "==2.0.4",
+          "fixed": null
+        },
+        {
+          "ecosystem": "npm",
+          "package": "coa",
+          "instructions": "Remove the compromised release and rebuild the environment from reviewed dependencies. Rotate credentials accessible during its execution and investigate the affected host.",
+          "versions": "==2.1.1",
+          "fixed": null
+        },
+        {
+          "ecosystem": "npm",
+          "package": "coa",
+          "instructions": "Remove the compromised release and rebuild the environment from reviewed dependencies. Rotate credentials accessible during its execution and investigate the affected host.",
+          "versions": "==2.1.3",
+          "fixed": null
+        },
+        {
+          "ecosystem": "npm",
+          "package": "coa",
+          "instructions": "Remove the compromised release and rebuild the environment from reviewed dependencies. Rotate credentials accessible during its execution and investigate the affected host.",
+          "versions": "==3.0.1",
+          "fixed": null
+        },
+        {
+          "ecosystem": "npm",
+          "package": "coa",
+          "instructions": "Remove the compromised release and rebuild the environment from reviewed dependencies. Rotate credentials accessible during its execution and investigate the affected host.",
+          "versions": "==3.1.3",
+          "fixed": null
+        }
+      ]
+    },
+    {
+      "id": "GHSA-g2q5-5433-rhrf",
+      "aliases": [],
+      "summary": "Embedded malware in rc",
+      "severity": "critical",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-g2q5-5433-rhrf",
+        "https://github.com/dominictarr/rc",
+        "https://therecord.media/malware-found-in-coa-and-rc-two-npm-packages-with-23m-weekly-downloads",
+        "https://www.npmjs.com/package/rc",
+        "https://www.virustotal.com/gui/file/26451f7f6fe297adf6738295b1dcc70f7678434ef21d8b6aad5ec00beb8a72cf?nocache=1"
+      ],
+      "affected": [
+        {
+          "ecosystem": "npm",
+          "package": "rc",
+          "instructions": "Remove the compromised release and rebuild the environment from reviewed dependencies. Rotate credentials accessible during its execution and investigate the affected host.",
+          "versions": "==1.2.9",
+          "fixed": null
+        },
+        {
+          "ecosystem": "npm",
+          "package": "rc",
+          "instructions": "Remove the compromised release and rebuild the environment from reviewed dependencies. Rotate credentials accessible during its execution and investigate the affected host.",
+          "versions": "==1.3.9",
+          "fixed": null
+        },
+        {
+          "ecosystem": "npm",
+          "package": "rc",
+          "instructions": "Remove the compromised release and rebuild the environment from reviewed dependencies. Rotate credentials accessible during its execution and investigate the affected host.",
+          "versions": "==2.3.9",
+          "fixed": null
+        }
+      ]
+    },
+    {
+      "id": "GHSA-97m3-w2cp-4xx6",
+      "aliases": [
+        "CVE-2022-23812"
+      ],
+      "summary": "Embedded Malicious Code in node-ipc",
+      "severity": "critical",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-97m3-w2cp-4xx6",
+        "https://nvd.nist.gov/vuln/detail/CVE-2022-23812",
+        "https://github.com/RIAEvangelist/node-ipc/issues/233",
+        "https://github.com/RIAEvangelist/node-ipc/issues/236",
+        "https://github.com/RIAEvangelist/node-ipc/commit/847047cf7f81ab08352038b2204f0e7633449580",
+        "https://github.com/RIAEvangelist/node-ipc",
+        "https://github.com/RIAEvangelist/node-ipc/blob/847047cf7f81ab08352038b2204f0e7633449580/dao/ssl-geospec.js",
+        "https://security.netapp.com/advisory/ntap-20220407-0005",
+        "https://snyk.io/vuln/SNYK-JS-NODEIPC-2426370"
+      ],
+      "affected": [
+        {
+          "ecosystem": "npm",
+          "package": "node-ipc",
+          "instructions": "Remove the compromised release and rebuild the environment from reviewed dependencies. Rotate credentials accessible during its execution and investigate the affected host.",
+          "versions": ">=10.1.1,<10.1.3",
+          "fixed": "10.1.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-5j2h-h5hg-3wf8",
+      "aliases": [
+        "CVE-2011-0696",
+        "PYSEC-2011-10"
+      ],
+      "summary": "Cross-site request forgery in Django",
+      "severity": "high",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-5j2h-h5hg-3wf8",
+        "https://nvd.nist.gov/vuln/detail/CVE-2011-0696",
+        "https://github.com/django/django/commit/408c5c873ce1437c7eee9544ff279ecbad7e150a",
+        "https://github.com/django/django/commit/818e70344e7193f6ebc73c82ed574e6ce3c91afc",
+        "https://bugzilla.redhat.com/show_bug.cgi?id=676357",
+        "https://github.com/advisories/GHSA-5j2h-h5hg-3wf8",
+        "https://github.com/django/django",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/django/PYSEC-2011-10.yaml",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/django/PYSEC-2011-30.yaml"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "django",
+          "versions": ">=1.1,<1.1.4",
+          "fixed": "1.1.4",
+          "instructions": "This is the historical fix for the listed branch. Plan a migration to a currently supported Django release and validate application compatibility."
+        },
+        {
+          "ecosystem": "PyPI",
+          "package": "django",
+          "versions": ">=1.2,<1.2.5",
+          "fixed": "1.2.5",
+          "instructions": "This is the historical fix for the listed branch. Plan a migration to a currently supported Django release and validate application compatibility."
+        }
+      ]
+    },
+    {
+      "id": "GHSA-fwr5-q9rx-294f",
+      "aliases": [
+        "CVE-2010-4534",
+        "PYSEC-2011-8"
+      ],
+      "summary": "Improper query string handling in Django",
+      "severity": "high",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-fwr5-q9rx-294f",
+        "https://nvd.nist.gov/vuln/detail/CVE-2010-4534",
+        "https://github.com/django/django/commit/17084839fd7e267da5729f2a27753322b9d415a0",
+        "https://github.com/django/django/commit/85207a245bf09fdebe486b4c7bbcb65300f2a693",
+        "https://bugzilla.redhat.com/show_bug.cgi?id=665373",
+        "https://github.com/advisories/GHSA-fwr5-q9rx-294f",
+        "https://github.com/django/django",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/django/PYSEC-2011-28.yaml",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/django/PYSEC-2011-8.yaml"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "django",
+          "versions": "<1.1.3",
+          "fixed": "1.1.3",
+          "instructions": "This is the historical fix for the listed branch. Plan a migration to a currently supported Django release and validate application compatibility."
+        },
+        {
+          "ecosystem": "PyPI",
+          "package": "django",
+          "versions": ">=1.2,<1.2.4",
+          "fixed": "1.2.4",
+          "instructions": "This is the historical fix for the listed branch. Plan a migration to a currently supported Django release and validate application compatibility."
+        }
+      ]
+    },
+    {
+      "id": "GHSA-fxpg-gg9g-76gj",
+      "aliases": [
+        "CVE-2010-3082",
+        "PYSEC-2010-12"
+      ],
+      "summary": "Cross-site scripting in django",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-fxpg-gg9g-76gj",
+        "https://nvd.nist.gov/vuln/detail/CVE-2010-3082",
+        "https://github.com/django/django/commit/7f84657b6b2243cc787bdb9f296710c8d13ad0bd",
+        "https://bugzilla.redhat.com/show_bug.cgi?id=632239",
+        "https://exchange.xforce.ibmcloud.com/vulnerabilities/61729",
+        "https://github.com/advisories/GHSA-fxpg-gg9g-76gj",
+        "https://github.com/django/django",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/django/PYSEC-2010-12.yaml"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "django",
+          "versions": ">=1.2,<1.2.2",
+          "fixed": "1.2.2",
+          "instructions": "This is the historical fix for the listed branch. Plan a migration to a currently supported Django release and validate application compatibility."
+        }
+      ]
+    },
+    {
+      "id": "GHSA-wqjj-hx84-v449",
+      "aliases": [
+        "CVE-2014-0474",
+        "PYSEC-2014-3"
+      ],
+      "summary": "Django Vulnerable to MySQL Injection",
+      "severity": "high",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-wqjj-hx84-v449",
+        "https://nvd.nist.gov/vuln/detail/CVE-2014-0474",
+        "https://github.com/django/django/commit/5f0829a27e85d89ad8c433f5c6a7a7d17c9e9292",
+        "https://github.com/django/django/commit/985434fb1d6bf2335bf96c6ebf91c3674f1f399f",
+        "https://github.com/django/django/commit/aa80f498de6d687e613860933ac58433ab71ea4b",
+        "https://github.com/django/django",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/django/PYSEC-2014-3.yaml",
+        "https://www.djangoproject.com/weblog/2014/apr/21/security"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "django",
+          "versions": "<1.4.11",
+          "fixed": "1.4.11",
+          "instructions": "This is the historical fix for the listed branch. Plan a migration to a currently supported Django release and validate application compatibility."
+        },
+        {
+          "ecosystem": "PyPI",
+          "package": "django",
+          "versions": ">=1.5,<1.5.6",
+          "fixed": "1.5.6",
+          "instructions": "This is the historical fix for the listed branch. Plan a migration to a currently supported Django release and validate application compatibility."
+        },
+        {
+          "ecosystem": "PyPI",
+          "package": "django",
+          "versions": ">=1.6,<1.6.3",
+          "fixed": "1.6.3",
+          "instructions": "This is the historical fix for the listed branch. Plan a migration to a currently supported Django release and validate application compatibility."
+        }
+      ]
+    },
+    {
+      "id": "GHSA-x88j-93vc-wpmp",
+      "aliases": [
+        "CVE-2011-4136",
+        "PYSEC-2011-1"
+      ],
+      "summary": "Session manipulation in Django",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-x88j-93vc-wpmp",
+        "https://nvd.nist.gov/vuln/detail/CVE-2011-4136",
+        "https://github.com/django/django/commit/ac7c3a110f906e4dfed3a17451bf7fd9fcb81296",
+        "https://github.com/django/django/commit/fbe2eead2fa9d808658ca582241bcacb02618840",
+        "https://bugzilla.redhat.com/show_bug.cgi?id=737366",
+        "https://github.com/advisories/GHSA-x88j-93vc-wpmp",
+        "https://github.com/django/django",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/django/PYSEC-2011-1.yaml",
+        "https://hermes.opensuse.org/messages/14700881",
+        "https://www.djangoproject.com/weblog/2011/sep/09",
+        "https://www.djangoproject.com/weblog/2011/sep/10/127"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "django",
+          "versions": "<1.2.7",
+          "fixed": "1.2.7",
+          "instructions": "This is the historical fix for the listed branch. Plan a migration to a currently supported Django release and validate application compatibility."
+        },
+        {
+          "ecosystem": "PyPI",
+          "package": "django",
+          "versions": ">=1.3,<1.3.1",
+          "fixed": "1.3.1",
+          "instructions": "This is the historical fix for the listed branch. Plan a migration to a currently supported Django release and validate application compatibility."
+        }
+      ]
+    },
+    {
+      "id": "GHSA-jfhm-5ghh-2f97",
+      "aliases": [
+        "CVE-2023-49083",
+        "PYSEC-2023-254"
+      ],
+      "summary": "cryptography vulnerable to NULL-dereference when loading PKCS7 certificates",
+      "severity": "moderate",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-jfhm-5ghh-2f97",
+        "https://github.com/pyca/cryptography/security/advisories/GHSA-jfhm-5ghh-2f97",
+        "https://nvd.nist.gov/vuln/detail/CVE-2023-49083",
+        "https://github.com/pyca/cryptography/pull/9926",
+        "https://github.com/pyca/cryptography/commit/f09c261ca10a31fe41b1262306db7f8f1da0e48a",
+        "https://github.com/pyca/cryptography",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/cryptography/PYSEC-2023-254.yaml",
+        "https://lists.debian.org/debian-lts-announce/2024/10/msg00012.html",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/QMNTYMUGFJSDBYBU22FUYBHFRZODRKXV"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "cryptography",
+          "versions": ">=3.1,<41.0.6",
+          "fixed": "41.0.6"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-rhm9-p9w5-fwm7",
+      "aliases": [
+        "CVE-2020-36242",
+        "PYSEC-2021-63"
+      ],
+      "summary": "PyCA Cryptography symmetrically encrypting large values can lead to integer overflow",
+      "severity": "high",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-rhm9-p9w5-fwm7",
+        "https://github.com/pyca/cryptography/security/advisories/GHSA-rhm9-p9w5-fwm7",
+        "https://nvd.nist.gov/vuln/detail/CVE-2020-36242",
+        "https://github.com/pyca/cryptography/issues/5615",
+        "https://github.com/pyca/cryptography/commit/82b6ce28389f0a317bc55ba2091a74b346db7cae",
+        "https://github.com/advisories/GHSA-rhm9-p9w5-fwm7",
+        "https://github.com/pyca/cryptography",
+        "https://github.com/pyca/cryptography/blob/master/CHANGELOG.rst",
+        "https://github.com/pyca/cryptography/compare/3.3.1...3.3.2",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/cryptography/PYSEC-2021-63.yaml",
+        "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/L7RGQLK4J5ZQFRLKCHVVG6BKZTUQMG7E",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/L7RGQLK4J5ZQFRLKCHVVG6BKZTUQMG7E",
+        "https://www.oracle.com/security-alerts/cpuapr2022.html",
+        "https://www.oracle.com/security-alerts/cpujul2022.html"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "cryptography",
+          "versions": ">=3.1,<3.3.2",
+          "fixed": "3.3.2"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-2g68-c3qc-8985",
+      "aliases": [
+        "CVE-2024-34069",
+        "PYSEC-2026-2043"
+      ],
+      "summary": "Werkzeug debugger vulnerable to remote execution when interacting with attacker controlled domain",
+      "severity": "high",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-2g68-c3qc-8985",
+        "https://github.com/pallets/werkzeug/security/advisories/GHSA-2g68-c3qc-8985",
+        "https://nvd.nist.gov/vuln/detail/CVE-2024-34069",
+        "https://github.com/pallets/werkzeug/commit/3386395b24c7371db11a5b8eaac0c91da5362692",
+        "https://github.com/pallets/werkzeug",
+        "https://lists.debian.org/debian-lts-announce/2025/02/msg00026.html",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/H4SH32AM3CTPMAAEOIDAN7VU565LO4IR",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HFERFN7PINV4MOGMGA3DPIXJPDCYOEJZ",
+        "https://security.netapp.com/advisory/ntap-20240614-0004"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "werkzeug",
+          "versions": "<3.0.3",
+          "fixed": "3.0.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-gq9m-qvpx-68hc",
+      "aliases": [
+        "CVE-2019-14806",
+        "PYSEC-2019-140"
+      ],
+      "summary": "Pallets Werkzeug Insufficient Entropy",
+      "severity": "high",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-gq9m-qvpx-68hc",
+        "https://nvd.nist.gov/vuln/detail/CVE-2019-14806",
+        "https://github.com/pallets/werkzeug/commit/00bc43b1672e662e5e3b8cecd79e67fc968fa246",
+        "https://github.com/pallets/werkzeug",
+        "https://github.com/pallets/werkzeug/blob/7fef41b120327d3912fbe12fb64f1951496fcf3e/src/werkzeug/debug/__init__.py#L168",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/werkzeug/PYSEC-2019-140.yaml",
+        "https://palletsprojects.com/blog/werkzeug-0-15-3-released"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "werkzeug",
+          "versions": "<0.15.3",
+          "fixed": "0.15.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-8vj2-vxx3-667w",
+      "aliases": [
+        "BIT-pillow-2022-22817",
+        "CVE-2022-22817",
+        "PYSEC-2022-10"
+      ],
+      "summary": "Arbitrary expression injection in Pillow",
+      "severity": "critical",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-8vj2-vxx3-667w",
+        "https://nvd.nist.gov/vuln/detail/CVE-2022-22817",
+        "https://github.com/python-pillow/Pillow/commit/8531b01d6cdf0b70f256f93092caa2a5d91afc11",
+        "https://github.com/advisories/GHSA-8vj2-vxx3-667w",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/pillow/PYSEC-2022-10.yaml",
+        "https://github.com/python-pillow/Pillow",
+        "https://lists.debian.org/debian-lts-announce/2022/01/msg00018.html",
+        "https://lists.debian.org/debian-lts-announce/2024/03/msg00021.html",
+        "https://pillow.readthedocs.io/en/stable/releasenotes/9.0.0.html#restrict-builtins-available-to-imagemath-eval",
+        "https://pillow.readthedocs.io/en/stable/releasenotes/9.0.1.html#security",
+        "https://security.gentoo.org/glsa/202211-10",
+        "https://www.debian.org/security/2022/dsa-5053"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "pillow",
+          "versions": "<9.0.1",
+          "fixed": "9.0.1"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-vj42-xq3r-hr3r",
+      "aliases": [
+        "BIT-pillow-2020-10994",
+        "CVE-2020-10994",
+        "PYSEC-2020-79"
+      ],
+      "summary": "Out-of-bounds reads in Pillow",
+      "severity": "high",
+      "references": [
+        "https://osv.dev/vulnerability/GHSA-vj42-xq3r-hr3r",
+        "https://nvd.nist.gov/vuln/detail/CVE-2020-10994",
+        "https://github.com/python-pillow/Pillow/pull/4505",
+        "https://github.com/python-pillow/Pillow/pull/4538",
+        "https://github.com/python-pillow/Pillow/commit/ff60894d697d1992147b791101ad53a8bf1352e4",
+        "https://github.com/advisories/GHSA-vj42-xq3r-hr3r",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/pillow/PYSEC-2020-79.yaml",
+        "https://github.com/python-pillow/Pillow",
+        "https://github.com/python-pillow/Pillow/blob/master/docs/releasenotes/7.1.0.rst#security",
+        "https://github.com/python-pillow/Pillow/commits/master/src/libImaging",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/BEBCPE4F2VHTIT6EZA2YZQZLPVDEBJGD",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HOKHNWV2VS5GESY7IBD237E7C6T3I427",
+        "https://pillow.readthedocs.io/en/stable/releasenotes",
+        "https://pillow.readthedocs.io/en/stable/releasenotes/7.1.0.html",
+        "https://snyk.io/vuln/SNYK-PYTHON-PILLOW-574575",
+        "https://usn.ubuntu.com/4430-1",
+        "https://usn.ubuntu.com/4430-2"
+      ],
+      "affected": [
+        {
+          "ecosystem": "PyPI",
+          "package": "pillow",
+          "versions": "<7.1.0",
+          "fixed": "7.1.0"
         }
       ]
     }

@@ -9,7 +9,7 @@ import sys
 import time
 from pathlib import Path
 
-from . import __version__, catalog, inventory, remediation, scanner
+from . import __version__, catalog, importers, intelligence, inventory, remediation, scanner
 
 
 def state_path():
@@ -45,6 +45,18 @@ def output(data, json_output):
                 )
             )
             print(clean(f"  {p['location']}"))
+            signals = f.get("exploitation", {})
+            if signals:
+                kev = (
+                    "CISA KEV listed"
+                    if signals["kev_status"] == "listed"
+                    else "CISA KEV: " + signals["kev_status"]
+                )
+                scores = signals.get("epss", {})
+                suffix = "; ".join(
+                    f"{c}: EPSS {v['probability']:.1%} ({v['date']})" for c, v in scores.items()
+                )
+                print("  " + clean(kev + ("; " + suffix if suffix else "")))
         for warning in data["warnings"]:
             print("WARNING: " + clean(warning))
     elif isinstance(data, list) and all("supported" in a for a in data):
@@ -58,7 +70,7 @@ def output(data, json_output):
             print("  " + clean(a["reason"]))
             print("  " + clean(p["location"]))
             for cmd in a["commands"]:
-                print("  Suggested only (not executed): " + clean(shlex.join(cmd)))
+                print("  Suggested command: " + clean(shlex.join(cmd)))
             for instruction in a["instructions"]:
                 if instruction:
                     print("  " + clean(instruction))
@@ -91,12 +103,27 @@ def collect(args):
         if not sep or not name or not version:
             raise ValueError("--tool requires NAME=VERSION")
         result["packages"].append(inventory.package("Tool", name, version, "declared:" + name, "declared"))
+    for value in args.service:
+        name, sep, observed_version = value.partition("=")
+        if not sep or not name or not observed_version:
+            raise ValueError("--service requires NAME=VERSION")
+        result["packages"].append(
+            inventory.package(
+                "Service",
+                name,
+                observed_version,
+                "declared:" + name,
+                "declared-service",
+                evidence="user-declared version",
+            )
+        )
     return result
 
 
 def get_report(args, state, *, refresh=False):
     data, digest = get_catalog(args, state, refresh=refresh)
-    return scanner.scan(collect(args), data, digest, osv=args.osv)
+    report = scanner.scan(collect(args), data, digest, osv=args.osv)
+    return intelligence.enrich(report) if args.intelligence else report
 
 
 class RunLock:
@@ -148,14 +175,16 @@ def scan_arguments(parser):
         help="Directory to inspect; repeatable. Default: home and runtime locations",
     )
     parser.add_argument("--catalog", type=Path, help="Explicit local catalog")
-    parser.add_argument(
-        "--osv", action="store_true", help="Query OSV; sends package names and versions, never file paths"
-    )
+    parser.add_argument("--osv", action="store_true", help="Query OSV using package names and versions")
     parser.add_argument("--no-homebrew", action="store_true")
     parser.add_argument("--no-tools", action="store_true")
     parser.add_argument("--max-dirs", type=int, default=100000)
     parser.add_argument(
         "--tool", action="append", default=[], help="Declare an additional tool as NAME=VERSION"
+    )
+    parser.add_argument("--service", action="append", default=[], help="Declare a service as NAME=VERSION")
+    parser.add_argument(
+        "--intelligence", action="store_true", help="Prioritize findings with CISA KEV and FIRST EPSS"
     )
     parser.add_argument("--json", action="store_true")
 
@@ -189,6 +218,16 @@ def parser():
     s.add_argument("--sha256", help="Optional independently verified catalog checksum")
     e = cs.add_parser("export")
     e.add_argument("path", type=Path)
+    imp = cs.add_parser("import")
+    source = imp.add_mutually_exclusive_group(required=True)
+    source.add_argument("--github", help="GitHub Advisory Database GHSA identifier")
+    source.add_argument("--cve", help="CVE List identifier with an explicit product/version mapping")
+    imp.add_argument("--output", type=Path, required=True, help="Catalog file to create or extend")
+    imp.add_argument("--ecosystem", choices=["PyPI", "npm", "Homebrew", "Tool", "Service"])
+    imp.add_argument("--package")
+    imp.add_argument("--versions")
+    imp.add_argument("--fixed")
+    imp.add_argument("--instructions")
     r = sub.add_parser("rollback")
     r.add_argument("run_id")
     r.add_argument("--apply", action="store_true", required=True)
@@ -198,6 +237,7 @@ def parser():
     s.add_argument("--interval", type=int, default=86400)
     s.add_argument("--root", action="append", default=[])
     s.add_argument("--osv", action="store_true")
+    s.add_argument("--intelligence", action="store_true")
     s.add_argument("--apply", action="store_true", help="Enable automatic supported fixes in scheduled runs")
     return p
 
@@ -230,6 +270,8 @@ def schedule(args, state):
         command += ["--root", str(Path(root).expanduser().absolute())]
     if args.osv:
         command.append("--osv")
+    if args.intelligence:
+        command.append("--intelligence")
     if args.apply:
         command.append("--apply")
     content = dict(
@@ -269,6 +311,27 @@ def main(argv=None):
                 data, _ = catalog.load()
                 write_json(args.path, data)
                 print(args.path)
+            elif args.catalog_command == "import":
+                advisory = (
+                    importers.from_github(args.github)
+                    if args.github
+                    else importers.from_cve(
+                        args.cve,
+                        ecosystem=args.ecosystem,
+                        package=args.package,
+                        versions=args.versions,
+                        fixed=args.fixed,
+                        instructions=args.instructions,
+                    )
+                )
+                with RunLock(state):
+                    data = (
+                        catalog.load(args.output)[0]
+                        if args.output.exists()
+                        else {"schema_version": 1, "updated": "2026-01-01T00:00:00Z", "advisories": []}
+                    )
+                    write_json(args.output, importers.merge(data, advisory))
+                print(f"Imported {advisory['id']} into {args.output}; review the entry before distribution")
             else:
                 with RunLock(state):
                     digest = catalog.sync(args.url, state / "catalog.json", args.sha256)

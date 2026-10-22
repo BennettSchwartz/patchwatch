@@ -1,0 +1,2497 @@
+{
+  "CVE-2013-2028": {
+    "source": "https://cveawg.mitre.org/api/cve/CVE-2013-2028",
+    "range_source": "https://nginx.org/en/security_advisories.html",
+    "record": {
+      "containers": {
+        "cna": {
+          "affected": [
+            {
+              "product": "n/a",
+              "vendor": "n/a",
+              "versions": [
+                {
+                  "status": "affected",
+                  "version": "n/a"
+                }
+              ]
+            }
+          ],
+          "datePublic": "2013-05-07T00:00:00.000Z",
+          "descriptions": [
+            {
+              "lang": "en",
+              "value": "The ngx_http_parse_chunked function in http/ngx_http_parse.c in nginx 1.3.9 through 1.4.0 allows remote attackers to cause a denial of service (crash) and execute arbitrary code via a chunked Transfer-Encoding request with a large chunk size, which triggers an integer signedness error and a stack-based buffer overflow."
+            }
+          ],
+          "problemTypes": [
+            {
+              "descriptions": [
+                {
+                  "description": "n/a",
+                  "lang": "en",
+                  "type": "text"
+                }
+              ]
+            }
+          ],
+          "providerMetadata": {
+            "dateUpdated": "2016-12-29T18:57:01.000Z",
+            "orgId": "53f830b8-0a3f-465b-8143-3b8a9948e749",
+            "shortName": "redhat"
+          },
+          "references": [
+            {
+              "name": "[nginx-announce] 20130507 nginx security advisory (CVE-2013-2028)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://mailman.nginx.org/pipermail/nginx-announce/2013/000112.html"
+            },
+            {
+              "name": "93037",
+              "tags": [
+                "vdb-entry",
+                "x_refsource_OSVDB"
+              ],
+              "url": "http://www.osvdb.org/93037"
+            },
+            {
+              "name": "FEDORA-2013-7560",
+              "tags": [
+                "vendor-advisory",
+                "x_refsource_FEDORA"
+              ],
+              "url": "http://lists.fedoraproject.org/pipermail/package-announce/2013-May/105176.html"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "http://www.vnsecurity.net/2013/05/analysis-of-nginx-cve-2013-2028/"
+            },
+            {
+              "name": "55181",
+              "tags": [
+                "third-party-advisory",
+                "x_refsource_SECUNIA"
+              ],
+              "url": "http://secunia.com/advisories/55181"
+            },
+            {
+              "name": "59699",
+              "tags": [
+                "vdb-entry",
+                "x_refsource_BID"
+              ],
+              "url": "http://www.securityfocus.com/bid/59699"
+            },
+            {
+              "name": "GLSA-201310-04",
+              "tags": [
+                "vendor-advisory",
+                "x_refsource_GENTOO"
+              ],
+              "url": "http://security.gentoo.org/glsa/glsa-201310-04.xml"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "https://github.com/rapid7/metasploit-framework/pull/1834"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "http://nginx.org/download/patch.2013.chunked.txt"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "http://packetstormsecurity.com/files/121675/Nginx-1.3.9-1.4.0-Denial-Of-Service.html"
+            }
+          ],
+          "x_legacyV4Record": {
+            "CVE_data_meta": {
+              "ASSIGNER": "secalert@redhat.com",
+              "ID": "CVE-2013-2028",
+              "STATE": "PUBLIC"
+            },
+            "affects": {
+              "vendor": {
+                "vendor_data": [
+                  {
+                    "product": {
+                      "product_data": [
+                        {
+                          "product_name": "n/a",
+                          "version": {
+                            "version_data": [
+                              {
+                                "version_value": "n/a"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "vendor_name": "n/a"
+                  }
+                ]
+              }
+            },
+            "data_format": "MITRE",
+            "data_type": "CVE",
+            "data_version": "4.0",
+            "description": {
+              "description_data": [
+                {
+                  "lang": "eng",
+                  "value": "The ngx_http_parse_chunked function in http/ngx_http_parse.c in nginx 1.3.9 through 1.4.0 allows remote attackers to cause a denial of service (crash) and execute arbitrary code via a chunked Transfer-Encoding request with a large chunk size, which triggers an integer signedness error and a stack-based buffer overflow."
+                }
+              ]
+            },
+            "problemtype": {
+              "problemtype_data": [
+                {
+                  "description": [
+                    {
+                      "lang": "eng",
+                      "value": "n/a"
+                    }
+                  ]
+                }
+              ]
+            },
+            "references": {
+              "reference_data": [
+                {
+                  "name": "[nginx-announce] 20130507 nginx security advisory (CVE-2013-2028)",
+                  "refsource": "MLIST",
+                  "url": "http://mailman.nginx.org/pipermail/nginx-announce/2013/000112.html"
+                },
+                {
+                  "name": "93037",
+                  "refsource": "OSVDB",
+                  "url": "http://www.osvdb.org/93037"
+                },
+                {
+                  "name": "FEDORA-2013-7560",
+                  "refsource": "FEDORA",
+                  "url": "http://lists.fedoraproject.org/pipermail/package-announce/2013-May/105176.html"
+                },
+                {
+                  "name": "http://www.vnsecurity.net/2013/05/analysis-of-nginx-cve-2013-2028/",
+                  "refsource": "MISC",
+                  "url": "http://www.vnsecurity.net/2013/05/analysis-of-nginx-cve-2013-2028/"
+                },
+                {
+                  "name": "55181",
+                  "refsource": "SECUNIA",
+                  "url": "http://secunia.com/advisories/55181"
+                },
+                {
+                  "name": "59699",
+                  "refsource": "BID",
+                  "url": "http://www.securityfocus.com/bid/59699"
+                },
+                {
+                  "name": "GLSA-201310-04",
+                  "refsource": "GENTOO",
+                  "url": "http://security.gentoo.org/glsa/glsa-201310-04.xml"
+                },
+                {
+                  "name": "https://github.com/rapid7/metasploit-framework/pull/1834",
+                  "refsource": "MISC",
+                  "url": "https://github.com/rapid7/metasploit-framework/pull/1834"
+                },
+                {
+                  "name": "http://nginx.org/download/patch.2013.chunked.txt",
+                  "refsource": "MISC",
+                  "url": "http://nginx.org/download/patch.2013.chunked.txt"
+                },
+                {
+                  "name": "http://packetstormsecurity.com/files/121675/Nginx-1.3.9-1.4.0-Denial-Of-Service.html",
+                  "refsource": "MISC",
+                  "url": "http://packetstormsecurity.com/files/121675/Nginx-1.3.9-1.4.0-Denial-Of-Service.html"
+                }
+              ]
+            }
+          }
+        },
+        "adp": [
+          {
+            "providerMetadata": {
+              "orgId": "af854a3a-2127-422b-91ae-364da2661108",
+              "shortName": "CVE",
+              "dateUpdated": "2024-08-06T15:20:37.493Z"
+            },
+            "title": "CVE Program Container",
+            "references": [
+              {
+                "name": "[nginx-announce] 20130507 nginx security advisory (CVE-2013-2028)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://mailman.nginx.org/pipermail/nginx-announce/2013/000112.html"
+              },
+              {
+                "name": "93037",
+                "tags": [
+                  "vdb-entry",
+                  "x_refsource_OSVDB",
+                  "x_transferred"
+                ],
+                "url": "http://www.osvdb.org/93037"
+              },
+              {
+                "name": "FEDORA-2013-7560",
+                "tags": [
+                  "vendor-advisory",
+                  "x_refsource_FEDORA",
+                  "x_transferred"
+                ],
+                "url": "http://lists.fedoraproject.org/pipermail/package-announce/2013-May/105176.html"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "http://www.vnsecurity.net/2013/05/analysis-of-nginx-cve-2013-2028/"
+              },
+              {
+                "name": "55181",
+                "tags": [
+                  "third-party-advisory",
+                  "x_refsource_SECUNIA",
+                  "x_transferred"
+                ],
+                "url": "http://secunia.com/advisories/55181"
+              },
+              {
+                "name": "59699",
+                "tags": [
+                  "vdb-entry",
+                  "x_refsource_BID",
+                  "x_transferred"
+                ],
+                "url": "http://www.securityfocus.com/bid/59699"
+              },
+              {
+                "name": "GLSA-201310-04",
+                "tags": [
+                  "vendor-advisory",
+                  "x_refsource_GENTOO",
+                  "x_transferred"
+                ],
+                "url": "http://security.gentoo.org/glsa/glsa-201310-04.xml"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "https://github.com/rapid7/metasploit-framework/pull/1834"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "http://nginx.org/download/patch.2013.chunked.txt"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "http://packetstormsecurity.com/files/121675/Nginx-1.3.9-1.4.0-Denial-Of-Service.html"
+              }
+            ]
+          }
+        ]
+      },
+      "cveMetadata": {
+        "assignerOrgId": "53f830b8-0a3f-465b-8143-3b8a9948e749",
+        "assignerShortName": "redhat",
+        "cveId": "CVE-2013-2028",
+        "datePublished": "2013-07-18T01:00:00.000Z",
+        "dateReserved": "2013-02-19T00:00:00.000Z",
+        "dateUpdated": "2024-08-06T15:20:37.493Z",
+        "state": "PUBLISHED"
+      },
+      "dataType": "CVE_RECORD",
+      "dataVersion": "5.1"
+    }
+  },
+  "CVE-2021-23017": {
+    "source": "https://cveawg.mitre.org/api/cve/CVE-2021-23017",
+    "range_source": "https://nginx.org/en/security_advisories.html",
+    "record": {
+      "containers": {
+        "cna": {
+          "affected": [
+            {
+              "product": "Nginx Web Server, Nginx Plus",
+              "vendor": "n/a",
+              "versions": [
+                {
+                  "status": "affected",
+                  "version": "Nginx Web Server versions 0.6.18 thru 1.20.0 before 1.20.1, Nginx plus versions R13 thru R23 before R23 P1. Nginx plus version R24 before R24 P1"
+                }
+              ]
+            }
+          ],
+          "descriptions": [
+            {
+              "lang": "en",
+              "value": "A security issue in nginx resolver was identified, which might allow an attacker who is able to forge UDP packets from the DNS server to cause 1-byte memory overwrite, resulting in worker process crash or potential other impact."
+            }
+          ],
+          "problemTypes": [
+            {
+              "descriptions": [
+                {
+                  "cweId": "CWE-193",
+                  "description": "CWE-193",
+                  "lang": "en",
+                  "type": "CWE"
+                }
+              ]
+            }
+          ],
+          "providerMetadata": {
+            "dateUpdated": "2022-07-11T15:06:16.000Z",
+            "orgId": "9dacffd4-cb11-413f-8451-fbbfd4ddc0ab",
+            "shortName": "f5"
+          },
+          "references": [
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "https://support.f5.com/csp/article/K12331123%2C"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "http://mailman.nginx.org/pipermail/nginx-announce/2021/000300.html"
+            },
+            {
+              "name": "[apisix-notifications] 20210607 [GitHub] [apisix-website] Serendipity96 opened a new pull request #362: feat: add new blog",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "https://lists.apache.org/thread.html/r6fc5c57b38e93e36213e9a18c8a4e5dbd5ced1c7e57f08a1735975ba%40%3Cnotifications.apisix.apache.org%3E"
+            },
+            {
+              "name": "[apisix-notifications] 20210608 [GitHub] [apisix-website] liuxiran commented on a change in pull request #362: docs: added \"Apache APISIX not affected by NGINX CVE-2021-23017\"",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "https://lists.apache.org/thread.html/r37e6b2165f7c910d8e15fd54f4697857619ad2625f56583802004009%40%3Cnotifications.apisix.apache.org%3E"
+            },
+            {
+              "name": "[apisix-notifications] 20210608 [GitHub] [apisix-website] netlify[bot] edited a comment on pull request #362: docs: added \"Apache APISIX not affected by NGINX CVE-2021-23017\"",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "https://lists.apache.org/thread.html/rf318aeeb4d7a3a312734780b47de83cefb7e6995da0b2cae5c28675c%40%3Cnotifications.apisix.apache.org%3E"
+            },
+            {
+              "name": "[apisix-notifications] 20210608 [GitHub] [apisix-website] liuxiran merged pull request #362: docs: added \"Apache APISIX not affected by NGINX CVE-2021-23017\"",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "https://lists.apache.org/thread.html/r4d4966221ca399ce948ef34884652265729d7d9ef8179c78d7f17e7f%40%3Cnotifications.apisix.apache.org%3E"
+            },
+            {
+              "name": "[apisix-notifications] 20210608 [apisix-website] branch master updated: docs: added \"Apache APISIX not affected by NGINX CVE-2021-23017\" (#362)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "https://lists.apache.org/thread.html/rf232eecd47fdc44520192810560303073cefd684b321f85e311bad31%40%3Cnotifications.apisix.apache.org%3E"
+            },
+            {
+              "name": "FEDORA-2021-b37cffac0d",
+              "tags": [
+                "vendor-advisory",
+                "x_refsource_FEDORA"
+              ],
+              "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/GNKOP2JR5L7KCIZTJRZDCUPJTUONMC5I/"
+            },
+            {
+              "name": "FEDORA-2021-393d698493",
+              "tags": [
+                "vendor-advisory",
+                "x_refsource_FEDORA"
+              ],
+              "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/7SFVYHC7OXTEO4SMBWXDVK6E5IMEYMEE/"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "https://www.oracle.com/security-alerts/cpuoct2021.html"
+            },
+            {
+              "tags": [
+                "x_refsource_CONFIRM"
+              ],
+              "url": "https://security.netapp.com/advisory/ntap-20210708-0006/"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "https://www.oracle.com/security-alerts/cpujan2022.html"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "https://www.oracle.com/security-alerts/cpuapr2022.html"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "http://packetstormsecurity.com/files/167720/Nginx-1.20.0-Denial-Of-Service.html"
+            }
+          ],
+          "x_legacyV4Record": {
+            "CVE_data_meta": {
+              "ASSIGNER": "f5sirt@f5.com",
+              "ID": "CVE-2021-23017",
+              "STATE": "PUBLIC"
+            },
+            "affects": {
+              "vendor": {
+                "vendor_data": [
+                  {
+                    "product": {
+                      "product_data": [
+                        {
+                          "product_name": "Nginx Web Server, Nginx Plus",
+                          "version": {
+                            "version_data": [
+                              {
+                                "version_value": "Nginx Web Server versions 0.6.18 thru 1.20.0 before 1.20.1, Nginx plus versions R13 thru R23 before R23 P1. Nginx plus version R24 before R24 P1"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "vendor_name": "n/a"
+                  }
+                ]
+              }
+            },
+            "data_format": "MITRE",
+            "data_type": "CVE",
+            "data_version": "4.0",
+            "description": {
+              "description_data": [
+                {
+                  "lang": "eng",
+                  "value": "A security issue in nginx resolver was identified, which might allow an attacker who is able to forge UDP packets from the DNS server to cause 1-byte memory overwrite, resulting in worker process crash or potential other impact."
+                }
+              ]
+            },
+            "problemtype": {
+              "problemtype_data": [
+                {
+                  "description": [
+                    {
+                      "lang": "eng",
+                      "value": "CWE-193"
+                    }
+                  ]
+                }
+              ]
+            },
+            "references": {
+              "reference_data": [
+                {
+                  "name": "https://support.f5.com/csp/article/K12331123,",
+                  "refsource": "MISC",
+                  "url": "https://support.f5.com/csp/article/K12331123,"
+                },
+                {
+                  "name": "http://mailman.nginx.org/pipermail/nginx-announce/2021/000300.html",
+                  "refsource": "MISC",
+                  "url": "http://mailman.nginx.org/pipermail/nginx-announce/2021/000300.html"
+                },
+                {
+                  "name": "[apisix-notifications] 20210607 [GitHub] [apisix-website] Serendipity96 opened a new pull request #362: feat: add new blog",
+                  "refsource": "MLIST",
+                  "url": "https://lists.apache.org/thread.html/r6fc5c57b38e93e36213e9a18c8a4e5dbd5ced1c7e57f08a1735975ba@%3Cnotifications.apisix.apache.org%3E"
+                },
+                {
+                  "name": "[apisix-notifications] 20210608 [GitHub] [apisix-website] liuxiran commented on a change in pull request #362: docs: added \"Apache APISIX not affected by NGINX CVE-2021-23017\"",
+                  "refsource": "MLIST",
+                  "url": "https://lists.apache.org/thread.html/r37e6b2165f7c910d8e15fd54f4697857619ad2625f56583802004009@%3Cnotifications.apisix.apache.org%3E"
+                },
+                {
+                  "name": "[apisix-notifications] 20210608 [GitHub] [apisix-website] netlify[bot] edited a comment on pull request #362: docs: added \"Apache APISIX not affected by NGINX CVE-2021-23017\"",
+                  "refsource": "MLIST",
+                  "url": "https://lists.apache.org/thread.html/rf318aeeb4d7a3a312734780b47de83cefb7e6995da0b2cae5c28675c@%3Cnotifications.apisix.apache.org%3E"
+                },
+                {
+                  "name": "[apisix-notifications] 20210608 [GitHub] [apisix-website] liuxiran merged pull request #362: docs: added \"Apache APISIX not affected by NGINX CVE-2021-23017\"",
+                  "refsource": "MLIST",
+                  "url": "https://lists.apache.org/thread.html/r4d4966221ca399ce948ef34884652265729d7d9ef8179c78d7f17e7f@%3Cnotifications.apisix.apache.org%3E"
+                },
+                {
+                  "name": "[apisix-notifications] 20210608 [apisix-website] branch master updated: docs: added \"Apache APISIX not affected by NGINX CVE-2021-23017\" (#362)",
+                  "refsource": "MLIST",
+                  "url": "https://lists.apache.org/thread.html/rf232eecd47fdc44520192810560303073cefd684b321f85e311bad31@%3Cnotifications.apisix.apache.org%3E"
+                },
+                {
+                  "name": "FEDORA-2021-b37cffac0d",
+                  "refsource": "FEDORA",
+                  "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/GNKOP2JR5L7KCIZTJRZDCUPJTUONMC5I/"
+                },
+                {
+                  "name": "FEDORA-2021-393d698493",
+                  "refsource": "FEDORA",
+                  "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/7SFVYHC7OXTEO4SMBWXDVK6E5IMEYMEE/"
+                },
+                {
+                  "name": "https://www.oracle.com/security-alerts/cpuoct2021.html",
+                  "refsource": "MISC",
+                  "url": "https://www.oracle.com/security-alerts/cpuoct2021.html"
+                },
+                {
+                  "name": "https://security.netapp.com/advisory/ntap-20210708-0006/",
+                  "refsource": "CONFIRM",
+                  "url": "https://security.netapp.com/advisory/ntap-20210708-0006/"
+                },
+                {
+                  "name": "https://www.oracle.com/security-alerts/cpujan2022.html",
+                  "refsource": "MISC",
+                  "url": "https://www.oracle.com/security-alerts/cpujan2022.html"
+                },
+                {
+                  "name": "https://www.oracle.com/security-alerts/cpuapr2022.html",
+                  "refsource": "MISC",
+                  "url": "https://www.oracle.com/security-alerts/cpuapr2022.html"
+                },
+                {
+                  "name": "http://packetstormsecurity.com/files/167720/Nginx-1.20.0-Denial-Of-Service.html",
+                  "refsource": "MISC",
+                  "url": "http://packetstormsecurity.com/files/167720/Nginx-1.20.0-Denial-Of-Service.html"
+                }
+              ]
+            }
+          }
+        },
+        "adp": [
+          {
+            "providerMetadata": {
+              "orgId": "af854a3a-2127-422b-91ae-364da2661108",
+              "shortName": "CVE",
+              "dateUpdated": "2024-08-03T18:58:26.413Z"
+            },
+            "title": "CVE Program Container",
+            "references": [
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "https://support.f5.com/csp/article/K12331123%2C"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "http://mailman.nginx.org/pipermail/nginx-announce/2021/000300.html"
+              },
+              {
+                "name": "[apisix-notifications] 20210607 [GitHub] [apisix-website] Serendipity96 opened a new pull request #362: feat: add new blog",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "https://lists.apache.org/thread.html/r6fc5c57b38e93e36213e9a18c8a4e5dbd5ced1c7e57f08a1735975ba%40%3Cnotifications.apisix.apache.org%3E"
+              },
+              {
+                "name": "[apisix-notifications] 20210608 [GitHub] [apisix-website] liuxiran commented on a change in pull request #362: docs: added \"Apache APISIX not affected by NGINX CVE-2021-23017\"",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "https://lists.apache.org/thread.html/r37e6b2165f7c910d8e15fd54f4697857619ad2625f56583802004009%40%3Cnotifications.apisix.apache.org%3E"
+              },
+              {
+                "name": "[apisix-notifications] 20210608 [GitHub] [apisix-website] netlify[bot] edited a comment on pull request #362: docs: added \"Apache APISIX not affected by NGINX CVE-2021-23017\"",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "https://lists.apache.org/thread.html/rf318aeeb4d7a3a312734780b47de83cefb7e6995da0b2cae5c28675c%40%3Cnotifications.apisix.apache.org%3E"
+              },
+              {
+                "name": "[apisix-notifications] 20210608 [GitHub] [apisix-website] liuxiran merged pull request #362: docs: added \"Apache APISIX not affected by NGINX CVE-2021-23017\"",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "https://lists.apache.org/thread.html/r4d4966221ca399ce948ef34884652265729d7d9ef8179c78d7f17e7f%40%3Cnotifications.apisix.apache.org%3E"
+              },
+              {
+                "name": "[apisix-notifications] 20210608 [apisix-website] branch master updated: docs: added \"Apache APISIX not affected by NGINX CVE-2021-23017\" (#362)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "https://lists.apache.org/thread.html/rf232eecd47fdc44520192810560303073cefd684b321f85e311bad31%40%3Cnotifications.apisix.apache.org%3E"
+              },
+              {
+                "name": "FEDORA-2021-b37cffac0d",
+                "tags": [
+                  "vendor-advisory",
+                  "x_refsource_FEDORA",
+                  "x_transferred"
+                ],
+                "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/GNKOP2JR5L7KCIZTJRZDCUPJTUONMC5I/"
+              },
+              {
+                "name": "FEDORA-2021-393d698493",
+                "tags": [
+                  "vendor-advisory",
+                  "x_refsource_FEDORA",
+                  "x_transferred"
+                ],
+                "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/7SFVYHC7OXTEO4SMBWXDVK6E5IMEYMEE/"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "https://www.oracle.com/security-alerts/cpuoct2021.html"
+              },
+              {
+                "tags": [
+                  "x_refsource_CONFIRM",
+                  "x_transferred"
+                ],
+                "url": "https://security.netapp.com/advisory/ntap-20210708-0006/"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "https://www.oracle.com/security-alerts/cpujan2022.html"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "https://www.oracle.com/security-alerts/cpuapr2022.html"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "http://packetstormsecurity.com/files/167720/Nginx-1.20.0-Denial-Of-Service.html"
+              }
+            ]
+          }
+        ]
+      },
+      "cveMetadata": {
+        "assignerOrgId": "9dacffd4-cb11-413f-8451-fbbfd4ddc0ab",
+        "assignerShortName": "f5",
+        "cveId": "CVE-2021-23017",
+        "datePublished": "2021-06-01T12:28:09.000Z",
+        "dateReserved": "2021-01-06T00:00:00.000Z",
+        "dateUpdated": "2024-08-03T18:58:26.413Z",
+        "state": "PUBLISHED"
+      },
+      "dataType": "CVE_RECORD",
+      "dataVersion": "5.1"
+    }
+  },
+  "CVE-2021-41773": {
+    "source": "https://cveawg.mitre.org/api/cve/CVE-2021-41773",
+    "range_source": "https://httpd.apache.org/security/vulnerabilities_24.html",
+    "record": {
+      "containers": {
+        "cna": {
+          "affected": [
+            {
+              "product": "Apache HTTP Server",
+              "vendor": "Apache Software Foundation",
+              "versions": [
+                {
+                  "status": "affected",
+                  "version": "Apache HTTP Server 2.4 2.4.49"
+                }
+              ]
+            }
+          ],
+          "credits": [
+            {
+              "lang": "en",
+              "value": "This issue was reported by Ash Daulton along with the cPanel Security Team"
+            }
+          ],
+          "descriptions": [
+            {
+              "lang": "en",
+              "value": "A flaw was found in a change made to path normalization in Apache HTTP Server 2.4.49. An attacker could use a path traversal attack to map URLs to files outside the directories configured by Alias-like directives. If files outside of these directories are not protected by the usual default configuration \"require all denied\", these requests can succeed. If CGI scripts are also enabled for these aliased pathes, this could allow for remote code execution. This issue is known to be exploited in the wild. This issue only affects Apache 2.4.49 and not earlier versions. The fix in Apache HTTP Server 2.4.50 was found to be incomplete, see CVE-2021-42013."
+            }
+          ],
+          "metrics": [
+            {
+              "other": {
+                "content": {
+                  "other": "critical"
+                },
+                "type": "unknown"
+              }
+            }
+          ],
+          "problemTypes": [
+            {
+              "descriptions": [
+                {
+                  "cweId": "CWE-22",
+                  "description": "CWE-22 Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+                  "lang": "en",
+                  "type": "CWE"
+                }
+              ]
+            }
+          ],
+          "providerMetadata": {
+            "dateUpdated": "2022-08-14T01:06:21.000Z",
+            "orgId": "f0158376-9dc2-43b6-827c-5f631a4d8d09",
+            "shortName": "apache"
+          },
+          "references": [
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "https://httpd.apache.org/security/vulnerabilities_24.html"
+            },
+            {
+              "name": "[httpd-users] 20211005 [users@httpd] CVE-2021-41773: Path traversal and file disclosure vulnerability in Apache HTTP Server 2.4.49",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "https://lists.apache.org/thread.html/r6abf5f2ba6f1aa8b1030f95367aaf17660c4e4c78cb2338aee18982f%40%3Cusers.httpd.apache.org%3E"
+            },
+            {
+              "name": "[announce] 20211005 CVE-2021-41773: Path traversal and file disclosure vulnerability in Apache HTTP Server 2.4.49",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "https://lists.apache.org/thread.html/r98d704ed4377ed889d40479db79ed1ee2f43b2ebdd79ce84b042df45%40%3Cannounce.apache.org%3E"
+            },
+            {
+              "name": "[oss-security] 20211005 CVE-2021-41773: Path traversal and file disclosure vulnerability in Apache HTTP Server 2.4.49",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/05/2"
+            },
+            {
+              "name": "[oss-security] 20211007 RE: CVE-2021-41773: Path traversal and file disclosure vulnerability in Apache HTTP Server 2.4.49",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/07/1"
+            },
+            {
+              "name": "[announce] 20211007 CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "https://lists.apache.org/thread.html/r7c795cd45a3384d4d27e57618a215b0ed19cb6ca8eb070061ad5d837%40%3Cannounce.apache.org%3E"
+            },
+            {
+              "name": "[httpd-users] 20211007 [users@httpd] CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "https://lists.apache.org/thread.html/rb5b0e46f179f60b0c70204656bc52fcb558e961cb4d06a971e9e3efb%40%3Cusers.httpd.apache.org%3E"
+            },
+            {
+              "name": "[oss-security] 20211007 CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/07/6"
+            },
+            {
+              "name": "20211007 Apache HTTP Server Vulnerabilties: October 2021",
+              "tags": [
+                "vendor-advisory",
+                "x_refsource_CISCO"
+              ],
+              "url": "https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apache-httpd-pathtrv-LAzg68cZ"
+            },
+            {
+              "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/08/1"
+            },
+            {
+              "name": "[httpd-cvs] 20211008 [httpd-site] branch main updated: * Align with CVE-2021-42013 based on the latest findings",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "https://lists.apache.org/thread.html/r17a4c6ce9aff662efd9459e9d1850ab4a611cb23392fc68264c72cb3%40%3Ccvs.httpd.apache.org%3E"
+            },
+            {
+              "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/08/2"
+            },
+            {
+              "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/08/3"
+            },
+            {
+              "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/08/4"
+            },
+            {
+              "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/08/6"
+            },
+            {
+              "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/08/5"
+            },
+            {
+              "name": "[oss-security] 20211009 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/09/1"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "http://packetstormsecurity.com/files/164418/Apache-HTTP-Server-2.4.49-Path-Traversal.html"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "http://packetstormsecurity.com/files/164418/Apache-HTTP-Server-2.4.49-Path-Traversal-Remote-Code-Execution.html"
+            },
+            {
+              "name": "[oss-security] 20211011 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/11/4"
+            },
+            {
+              "name": "FEDORA-2021-2a10bc68a4",
+              "tags": [
+                "vendor-advisory",
+                "x_refsource_FEDORA"
+              ],
+              "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/RMIIEFINL6FUIOPD2A3M5XC6DH45Y3CC/"
+            },
+            {
+              "name": "FEDORA-2021-aaf90ef84a",
+              "tags": [
+                "vendor-advisory",
+                "x_refsource_FEDORA"
+              ],
+              "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/WS5RVHOIIRECG65ZBTZY7IEJVWQSQPG3/"
+            },
+            {
+              "name": "[oss-security] 20211015 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/15/3"
+            },
+            {
+              "name": "[oss-security] 20211016 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/16/1"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "https://www.oracle.com/security-alerts/cpujan2022.html"
+            },
+            {
+              "tags": [
+                "x_refsource_CONFIRM"
+              ],
+              "url": "https://security.netapp.com/advisory/ntap-20211029-0009/"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "http://packetstormsecurity.com/files/164629/Apache-2.4.49-2.4.50-Traversal-Remote-Code-Execution.html"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "http://packetstormsecurity.com/files/164941/Apache-HTTP-Server-2.4.50-Remote-Code-Execution.html"
+            },
+            {
+              "name": "GLSA-202208-20",
+              "tags": [
+                "vendor-advisory",
+                "x_refsource_GENTOO"
+              ],
+              "url": "https://security.gentoo.org/glsa/202208-20"
+            }
+          ],
+          "source": {
+            "discovery": "UNKNOWN"
+          },
+          "timeline": [
+            {
+              "lang": "en",
+              "time": "2021-09-29T00:00:00.000Z",
+              "value": "reported"
+            },
+            {
+              "lang": "en",
+              "time": "2021-10-01T00:00:00.000Z",
+              "value": "fixed by r1893775 in 2.4.50"
+            }
+          ],
+          "title": "Path traversal and file disclosure vulnerability in Apache HTTP Server 2.4.49",
+          "x_generator": {
+            "engine": "Vulnogram 0.0.9"
+          },
+          "x_legacyV4Record": {
+            "CVE_data_meta": {
+              "ASSIGNER": "security@apache.org",
+              "ID": "CVE-2021-41773",
+              "STATE": "PUBLIC",
+              "TITLE": "Path traversal and file disclosure vulnerability in Apache HTTP Server 2.4.49"
+            },
+            "affects": {
+              "vendor": {
+                "vendor_data": [
+                  {
+                    "product": {
+                      "product_data": [
+                        {
+                          "product_name": "Apache HTTP Server",
+                          "version": {
+                            "version_data": [
+                              {
+                                "version_affected": "=",
+                                "version_name": "Apache HTTP Server 2.4",
+                                "version_value": "2.4.49"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "vendor_name": "Apache Software Foundation"
+                  }
+                ]
+              }
+            },
+            "credit": [
+              {
+                "lang": "eng",
+                "value": "This issue was reported by Ash Daulton along with the cPanel Security Team"
+              }
+            ],
+            "data_format": "MITRE",
+            "data_type": "CVE",
+            "data_version": "4.0",
+            "description": {
+              "description_data": [
+                {
+                  "lang": "eng",
+                  "value": "A flaw was found in a change made to path normalization in Apache HTTP Server 2.4.49. An attacker could use a path traversal attack to map URLs to files outside the directories configured by Alias-like directives. If files outside of these directories are not protected by the usual default configuration \"require all denied\", these requests can succeed. If CGI scripts are also enabled for these aliased pathes, this could allow for remote code execution. This issue is known to be exploited in the wild. This issue only affects Apache 2.4.49 and not earlier versions. The fix in Apache HTTP Server 2.4.50 was found to be incomplete, see CVE-2021-42013."
+                }
+              ]
+            },
+            "generator": {
+              "engine": "Vulnogram 0.0.9"
+            },
+            "impact": [
+              {
+                "other": "critical"
+              }
+            ],
+            "problemtype": {
+              "problemtype_data": [
+                {
+                  "description": [
+                    {
+                      "lang": "eng",
+                      "value": "CWE-22 Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                    }
+                  ]
+                }
+              ]
+            },
+            "references": {
+              "reference_data": [
+                {
+                  "name": "https://httpd.apache.org/security/vulnerabilities_24.html",
+                  "refsource": "MISC",
+                  "url": "https://httpd.apache.org/security/vulnerabilities_24.html"
+                },
+                {
+                  "name": "[httpd-users] 20211005 [users@httpd] CVE-2021-41773: Path traversal and file disclosure vulnerability in Apache HTTP Server 2.4.49",
+                  "refsource": "MLIST",
+                  "url": "https://lists.apache.org/thread.html/r6abf5f2ba6f1aa8b1030f95367aaf17660c4e4c78cb2338aee18982f@%3Cusers.httpd.apache.org%3E"
+                },
+                {
+                  "name": "[announce] 20211005 CVE-2021-41773: Path traversal and file disclosure vulnerability in Apache HTTP Server 2.4.49",
+                  "refsource": "MLIST",
+                  "url": "https://lists.apache.org/thread.html/r98d704ed4377ed889d40479db79ed1ee2f43b2ebdd79ce84b042df45@%3Cannounce.apache.org%3E"
+                },
+                {
+                  "name": "[oss-security] 20211005 CVE-2021-41773: Path traversal and file disclosure vulnerability in Apache HTTP Server 2.4.49",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/05/2"
+                },
+                {
+                  "name": "[oss-security] 20211007 RE: CVE-2021-41773: Path traversal and file disclosure vulnerability in Apache HTTP Server 2.4.49",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/07/1"
+                },
+                {
+                  "name": "[announce] 20211007 CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "https://lists.apache.org/thread.html/r7c795cd45a3384d4d27e57618a215b0ed19cb6ca8eb070061ad5d837@%3Cannounce.apache.org%3E"
+                },
+                {
+                  "name": "[httpd-users] 20211007 [users@httpd] CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "https://lists.apache.org/thread.html/rb5b0e46f179f60b0c70204656bc52fcb558e961cb4d06a971e9e3efb@%3Cusers.httpd.apache.org%3E"
+                },
+                {
+                  "name": "[oss-security] 20211007 CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/07/6"
+                },
+                {
+                  "name": "20211007 Apache HTTP Server Vulnerabilties: October 2021",
+                  "refsource": "CISCO",
+                  "url": "https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apache-httpd-pathtrv-LAzg68cZ"
+                },
+                {
+                  "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/08/1"
+                },
+                {
+                  "name": "[httpd-cvs] 20211008 [httpd-site] branch main updated: * Align with CVE-2021-42013 based on the latest findings",
+                  "refsource": "MLIST",
+                  "url": "https://lists.apache.org/thread.html/r17a4c6ce9aff662efd9459e9d1850ab4a611cb23392fc68264c72cb3@%3Ccvs.httpd.apache.org%3E"
+                },
+                {
+                  "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/08/2"
+                },
+                {
+                  "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/08/3"
+                },
+                {
+                  "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/08/4"
+                },
+                {
+                  "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/08/6"
+                },
+                {
+                  "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/08/5"
+                },
+                {
+                  "name": "[oss-security] 20211009 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/09/1"
+                },
+                {
+                  "name": "http://packetstormsecurity.com/files/164418/Apache-HTTP-Server-2.4.49-Path-Traversal.html",
+                  "refsource": "MISC",
+                  "url": "http://packetstormsecurity.com/files/164418/Apache-HTTP-Server-2.4.49-Path-Traversal.html"
+                },
+                {
+                  "name": "http://packetstormsecurity.com/files/164418/Apache-HTTP-Server-2.4.49-Path-Traversal-Remote-Code-Execution.html",
+                  "refsource": "MISC",
+                  "url": "http://packetstormsecurity.com/files/164418/Apache-HTTP-Server-2.4.49-Path-Traversal-Remote-Code-Execution.html"
+                },
+                {
+                  "name": "[oss-security] 20211011 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/11/4"
+                },
+                {
+                  "name": "FEDORA-2021-2a10bc68a4",
+                  "refsource": "FEDORA",
+                  "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RMIIEFINL6FUIOPD2A3M5XC6DH45Y3CC/"
+                },
+                {
+                  "name": "FEDORA-2021-aaf90ef84a",
+                  "refsource": "FEDORA",
+                  "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/WS5RVHOIIRECG65ZBTZY7IEJVWQSQPG3/"
+                },
+                {
+                  "name": "[oss-security] 20211015 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/15/3"
+                },
+                {
+                  "name": "[oss-security] 20211016 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/16/1"
+                },
+                {
+                  "name": "https://www.oracle.com/security-alerts/cpujan2022.html",
+                  "refsource": "MISC",
+                  "url": "https://www.oracle.com/security-alerts/cpujan2022.html"
+                },
+                {
+                  "name": "https://security.netapp.com/advisory/ntap-20211029-0009/",
+                  "refsource": "CONFIRM",
+                  "url": "https://security.netapp.com/advisory/ntap-20211029-0009/"
+                },
+                {
+                  "name": "http://packetstormsecurity.com/files/164629/Apache-2.4.49-2.4.50-Traversal-Remote-Code-Execution.html",
+                  "refsource": "MISC",
+                  "url": "http://packetstormsecurity.com/files/164629/Apache-2.4.49-2.4.50-Traversal-Remote-Code-Execution.html"
+                },
+                {
+                  "name": "http://packetstormsecurity.com/files/164941/Apache-HTTP-Server-2.4.50-Remote-Code-Execution.html",
+                  "refsource": "MISC",
+                  "url": "http://packetstormsecurity.com/files/164941/Apache-HTTP-Server-2.4.50-Remote-Code-Execution.html"
+                },
+                {
+                  "name": "GLSA-202208-20",
+                  "refsource": "GENTOO",
+                  "url": "https://security.gentoo.org/glsa/202208-20"
+                }
+              ]
+            },
+            "source": {
+              "discovery": "UNKNOWN"
+            },
+            "timeline": [
+              {
+                "lang": "en",
+                "time": "2021-09-29T00:00:00.000Z",
+                "value": "reported"
+              },
+              {
+                "lang": "en",
+                "time": "2021-10-01T00:00:00.000Z",
+                "value": "fixed by r1893775 in 2.4.50"
+              }
+            ]
+          }
+        },
+        "adp": [
+          {
+            "providerMetadata": {
+              "orgId": "af854a3a-2127-422b-91ae-364da2661108",
+              "shortName": "CVE",
+              "dateUpdated": "2024-08-04T03:15:29.280Z"
+            },
+            "title": "CVE Program Container",
+            "references": [
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "https://httpd.apache.org/security/vulnerabilities_24.html"
+              },
+              {
+                "name": "[httpd-users] 20211005 [users@httpd] CVE-2021-41773: Path traversal and file disclosure vulnerability in Apache HTTP Server 2.4.49",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "https://lists.apache.org/thread.html/r6abf5f2ba6f1aa8b1030f95367aaf17660c4e4c78cb2338aee18982f%40%3Cusers.httpd.apache.org%3E"
+              },
+              {
+                "name": "[announce] 20211005 CVE-2021-41773: Path traversal and file disclosure vulnerability in Apache HTTP Server 2.4.49",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "https://lists.apache.org/thread.html/r98d704ed4377ed889d40479db79ed1ee2f43b2ebdd79ce84b042df45%40%3Cannounce.apache.org%3E"
+              },
+              {
+                "name": "[oss-security] 20211005 CVE-2021-41773: Path traversal and file disclosure vulnerability in Apache HTTP Server 2.4.49",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/05/2"
+              },
+              {
+                "name": "[oss-security] 20211007 RE: CVE-2021-41773: Path traversal and file disclosure vulnerability in Apache HTTP Server 2.4.49",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/07/1"
+              },
+              {
+                "name": "[announce] 20211007 CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "https://lists.apache.org/thread.html/r7c795cd45a3384d4d27e57618a215b0ed19cb6ca8eb070061ad5d837%40%3Cannounce.apache.org%3E"
+              },
+              {
+                "name": "[httpd-users] 20211007 [users@httpd] CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "https://lists.apache.org/thread.html/rb5b0e46f179f60b0c70204656bc52fcb558e961cb4d06a971e9e3efb%40%3Cusers.httpd.apache.org%3E"
+              },
+              {
+                "name": "[oss-security] 20211007 CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/07/6"
+              },
+              {
+                "name": "20211007 Apache HTTP Server Vulnerabilties: October 2021",
+                "tags": [
+                  "vendor-advisory",
+                  "x_refsource_CISCO",
+                  "x_transferred"
+                ],
+                "url": "https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apache-httpd-pathtrv-LAzg68cZ"
+              },
+              {
+                "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/08/1"
+              },
+              {
+                "name": "[httpd-cvs] 20211008 [httpd-site] branch main updated: * Align with CVE-2021-42013 based on the latest findings",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "https://lists.apache.org/thread.html/r17a4c6ce9aff662efd9459e9d1850ab4a611cb23392fc68264c72cb3%40%3Ccvs.httpd.apache.org%3E"
+              },
+              {
+                "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/08/2"
+              },
+              {
+                "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/08/3"
+              },
+              {
+                "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/08/4"
+              },
+              {
+                "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/08/6"
+              },
+              {
+                "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/08/5"
+              },
+              {
+                "name": "[oss-security] 20211009 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/09/1"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "http://packetstormsecurity.com/files/164418/Apache-HTTP-Server-2.4.49-Path-Traversal.html"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "http://packetstormsecurity.com/files/164418/Apache-HTTP-Server-2.4.49-Path-Traversal-Remote-Code-Execution.html"
+              },
+              {
+                "name": "[oss-security] 20211011 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/11/4"
+              },
+              {
+                "name": "FEDORA-2021-2a10bc68a4",
+                "tags": [
+                  "vendor-advisory",
+                  "x_refsource_FEDORA",
+                  "x_transferred"
+                ],
+                "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/RMIIEFINL6FUIOPD2A3M5XC6DH45Y3CC/"
+              },
+              {
+                "name": "FEDORA-2021-aaf90ef84a",
+                "tags": [
+                  "vendor-advisory",
+                  "x_refsource_FEDORA",
+                  "x_transferred"
+                ],
+                "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/WS5RVHOIIRECG65ZBTZY7IEJVWQSQPG3/"
+              },
+              {
+                "name": "[oss-security] 20211015 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/15/3"
+              },
+              {
+                "name": "[oss-security] 20211016 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/16/1"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "https://www.oracle.com/security-alerts/cpujan2022.html"
+              },
+              {
+                "tags": [
+                  "x_refsource_CONFIRM",
+                  "x_transferred"
+                ],
+                "url": "https://security.netapp.com/advisory/ntap-20211029-0009/"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "http://packetstormsecurity.com/files/164629/Apache-2.4.49-2.4.50-Traversal-Remote-Code-Execution.html"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "http://packetstormsecurity.com/files/164941/Apache-HTTP-Server-2.4.50-Remote-Code-Execution.html"
+              },
+              {
+                "name": "GLSA-202208-20",
+                "tags": [
+                  "vendor-advisory",
+                  "x_refsource_GENTOO",
+                  "x_transferred"
+                ],
+                "url": "https://security.gentoo.org/glsa/202208-20"
+              }
+            ]
+          },
+          {
+            "metrics": [
+              {
+                "cvssV3_1": {
+                  "scope": "UNCHANGED",
+                  "version": "3.1",
+                  "baseScore": 7.5,
+                  "attackVector": "NETWORK",
+                  "baseSeverity": "HIGH",
+                  "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+                  "integrityImpact": "NONE",
+                  "userInteraction": "NONE",
+                  "attackComplexity": "LOW",
+                  "availabilityImpact": "NONE",
+                  "privilegesRequired": "NONE",
+                  "confidentialityImpact": "HIGH"
+                }
+              },
+              {
+                "other": {
+                  "type": "ssvc",
+                  "content": {
+                    "id": "CVE-2021-41773",
+                    "role": "CISA Coordinator",
+                    "options": [
+                      {
+                        "Exploitation": "active"
+                      },
+                      {
+                        "Automatable": "yes"
+                      },
+                      {
+                        "Technical Impact": "total"
+                      }
+                    ],
+                    "version": "2.0.3",
+                    "timestamp": "2025-02-04T14:41:10.766482Z"
+                  }
+                }
+              },
+              {
+                "other": {
+                  "type": "kev",
+                  "content": {
+                    "dateAdded": "2021-11-03",
+                    "reference": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2021-41773"
+                  }
+                }
+              }
+            ],
+            "references": [
+              {
+                "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2021-41773",
+                "tags": [
+                  "government-resource"
+                ]
+              }
+            ],
+            "timeline": [
+              {
+                "time": "2021-11-03T00:00:00.000Z",
+                "lang": "en",
+                "value": "CVE-2021-41773 added to CISA KEV"
+              }
+            ],
+            "title": "CISA ADP Vulnrichment",
+            "providerMetadata": {
+              "orgId": "134c704f-9b21-4f2e-91b3-4a467353bcc0",
+              "shortName": "CISA-ADP",
+              "dateUpdated": "2025-10-21T23:25:30.864Z"
+            }
+          }
+        ]
+      },
+      "cveMetadata": {
+        "assignerOrgId": "f0158376-9dc2-43b6-827c-5f631a4d8d09",
+        "assignerShortName": "apache",
+        "cveId": "CVE-2021-41773",
+        "datePublished": "2021-10-05T08:40:12.000Z",
+        "dateReserved": "2021-09-29T00:00:00.000Z",
+        "dateUpdated": "2025-10-21T23:25:30.864Z",
+        "state": "PUBLISHED"
+      },
+      "dataType": "CVE_RECORD",
+      "dataVersion": "5.1"
+    }
+  },
+  "CVE-2021-42013": {
+    "source": "https://cveawg.mitre.org/api/cve/CVE-2021-42013",
+    "range_source": "https://httpd.apache.org/security/vulnerabilities_24.html",
+    "record": {
+      "containers": {
+        "cna": {
+          "affected": [
+            {
+              "product": "Apache HTTP Server",
+              "vendor": "Apache Software Foundation",
+              "versions": [
+                {
+                  "status": "affected",
+                  "version": "Apache HTTP Server 2.4.49"
+                },
+                {
+                  "status": "affected",
+                  "version": "Apache HTTP Server 2.4.50"
+                }
+              ]
+            }
+          ],
+          "credits": [
+            {
+              "lang": "en",
+              "value": "Reported by Juan Escobar from Dreamlab Technologies, Fernando Mu\u00f1oz from NULL Life CTF Team, and Shungo Kumasaka"
+            }
+          ],
+          "descriptions": [
+            {
+              "lang": "en",
+              "value": "It was found that the fix for CVE-2021-41773 in Apache HTTP Server 2.4.50 was insufficient. An attacker could use a path traversal attack to map URLs to files outside the directories configured by Alias-like directives. If files outside of these directories are not protected by the usual default configuration \"require all denied\", these requests can succeed. If CGI scripts are also enabled for these aliased pathes, this could allow for remote code execution. This issue only affects Apache 2.4.49 and Apache 2.4.50 and not earlier versions."
+            }
+          ],
+          "metrics": [
+            {
+              "other": {
+                "content": {
+                  "other": "critical"
+                },
+                "type": "unknown"
+              }
+            }
+          ],
+          "problemTypes": [
+            {
+              "descriptions": [
+                {
+                  "cweId": "CWE-22",
+                  "description": "CWE-22 Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+                  "lang": "en",
+                  "type": "CWE"
+                }
+              ]
+            }
+          ],
+          "providerMetadata": {
+            "dateUpdated": "2022-08-14T01:06:15.000Z",
+            "orgId": "f0158376-9dc2-43b6-827c-5f631a4d8d09",
+            "shortName": "apache"
+          },
+          "references": [
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "https://httpd.apache.org/security/vulnerabilities_24.html"
+            },
+            {
+              "name": "[announce] 20211007 CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "https://lists.apache.org/thread.html/r7c795cd45a3384d4d27e57618a215b0ed19cb6ca8eb070061ad5d837%40%3Cannounce.apache.org%3E"
+            },
+            {
+              "name": "[httpd-users] 20211007 [users@httpd] CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "https://lists.apache.org/thread.html/rb5b0e46f179f60b0c70204656bc52fcb558e961cb4d06a971e9e3efb%40%3Cusers.httpd.apache.org%3E"
+            },
+            {
+              "name": "[oss-security] 20211007 CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/07/6"
+            },
+            {
+              "name": "20211007 Apache HTTP Server Vulnerabilties: October 2021",
+              "tags": [
+                "vendor-advisory",
+                "x_refsource_CISCO"
+              ],
+              "url": "https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apache-httpd-pathtrv-LAzg68cZ"
+            },
+            {
+              "name": "JVN#51106450",
+              "tags": [
+                "third-party-advisory",
+                "x_refsource_JVN"
+              ],
+              "url": "http://jvn.jp/en/jp/JVN51106450/index.html"
+            },
+            {
+              "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/08/1"
+            },
+            {
+              "name": "[httpd-cvs] 20211008 [httpd-site] branch main updated: * Align with CVE-2021-42013 based on the latest findings",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "https://lists.apache.org/thread.html/r17a4c6ce9aff662efd9459e9d1850ab4a611cb23392fc68264c72cb3%40%3Ccvs.httpd.apache.org%3E"
+            },
+            {
+              "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/08/2"
+            },
+            {
+              "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/08/3"
+            },
+            {
+              "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/08/4"
+            },
+            {
+              "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/08/6"
+            },
+            {
+              "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/08/5"
+            },
+            {
+              "name": "[oss-security] 20211009 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/09/1"
+            },
+            {
+              "name": "[oss-security] 20211011 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/11/4"
+            },
+            {
+              "name": "FEDORA-2021-2a10bc68a4",
+              "tags": [
+                "vendor-advisory",
+                "x_refsource_FEDORA"
+              ],
+              "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/RMIIEFINL6FUIOPD2A3M5XC6DH45Y3CC/"
+            },
+            {
+              "name": "FEDORA-2021-aaf90ef84a",
+              "tags": [
+                "vendor-advisory",
+                "x_refsource_FEDORA"
+              ],
+              "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/WS5RVHOIIRECG65ZBTZY7IEJVWQSQPG3/"
+            },
+            {
+              "name": "[oss-security] 20211015 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/15/3"
+            },
+            {
+              "name": "[oss-security] 20211016 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+              "tags": [
+                "mailing-list",
+                "x_refsource_MLIST"
+              ],
+              "url": "http://www.openwall.com/lists/oss-security/2021/10/16/1"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "https://www.oracle.com/security-alerts/cpujan2022.html"
+            },
+            {
+              "tags": [
+                "x_refsource_CONFIRM"
+              ],
+              "url": "https://security.netapp.com/advisory/ntap-20211029-0009/"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "http://packetstormsecurity.com/files/164629/Apache-2.4.49-2.4.50-Traversal-Remote-Code-Execution.html"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "http://packetstormsecurity.com/files/164941/Apache-HTTP-Server-2.4.50-Remote-Code-Execution.html"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "http://packetstormsecurity.com/files/164501/Apache-HTTP-Server-2.4.50-Path-Traversal-Code-Execution.html"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "http://packetstormsecurity.com/files/164609/Apache-HTTP-Server-2.4.50-Remote-Code-Execution.html"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "http://packetstormsecurity.com/files/165089/Apache-HTTP-Server-2.4.50-CVE-2021-42013-Exploitation.html"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "https://www.oracle.com/security-alerts/cpuapr2022.html"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "http://packetstormsecurity.com/files/167397/Apache-2.4.50-Remote-Code-Execution.html"
+            },
+            {
+              "tags": [
+                "x_refsource_MISC"
+              ],
+              "url": "https://www.povilaika.com/apache-2-4-50-exploit/"
+            },
+            {
+              "name": "GLSA-202208-20",
+              "tags": [
+                "vendor-advisory",
+                "x_refsource_GENTOO"
+              ],
+              "url": "https://security.gentoo.org/glsa/202208-20"
+            }
+          ],
+          "source": {
+            "discovery": "UNKNOWN"
+          },
+          "timeline": [
+            {
+              "lang": "en",
+              "time": "2021-10-06T00:00:00.000Z",
+              "value": "reported"
+            }
+          ],
+          "title": "Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+          "x_generator": {
+            "engine": "Vulnogram 0.0.9"
+          },
+          "x_legacyV4Record": {
+            "CVE_data_meta": {
+              "ASSIGNER": "security@apache.org",
+              "ID": "CVE-2021-42013",
+              "STATE": "PUBLIC",
+              "TITLE": "Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)"
+            },
+            "affects": {
+              "vendor": {
+                "vendor_data": [
+                  {
+                    "product": {
+                      "product_data": [
+                        {
+                          "product_name": "Apache HTTP Server",
+                          "version": {
+                            "version_data": [
+                              {
+                                "version_affected": "=",
+                                "version_name": "Apache HTTP Server",
+                                "version_value": "2.4.49"
+                              },
+                              {
+                                "version_affected": "=",
+                                "version_name": "Apache HTTP Server",
+                                "version_value": "2.4.50"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "vendor_name": "Apache Software Foundation"
+                  }
+                ]
+              }
+            },
+            "credit": [
+              {
+                "lang": "eng",
+                "value": "Reported by Juan Escobar from Dreamlab Technologies, Fernando Mu\u00f1oz from NULL Life CTF Team, and Shungo Kumasaka"
+              }
+            ],
+            "data_format": "MITRE",
+            "data_type": "CVE",
+            "data_version": "4.0",
+            "description": {
+              "description_data": [
+                {
+                  "lang": "eng",
+                  "value": "It was found that the fix for CVE-2021-41773 in Apache HTTP Server 2.4.50 was insufficient. An attacker could use a path traversal attack to map URLs to files outside the directories configured by Alias-like directives. If files outside of these directories are not protected by the usual default configuration \"require all denied\", these requests can succeed. If CGI scripts are also enabled for these aliased pathes, this could allow for remote code execution. This issue only affects Apache 2.4.49 and Apache 2.4.50 and not earlier versions."
+                }
+              ]
+            },
+            "generator": {
+              "engine": "Vulnogram 0.0.9"
+            },
+            "impact": [
+              {
+                "other": "critical"
+              }
+            ],
+            "problemtype": {
+              "problemtype_data": [
+                {
+                  "description": [
+                    {
+                      "lang": "eng",
+                      "value": "CWE-22 Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                    }
+                  ]
+                }
+              ]
+            },
+            "references": {
+              "reference_data": [
+                {
+                  "name": "https://httpd.apache.org/security/vulnerabilities_24.html",
+                  "refsource": "MISC",
+                  "url": "https://httpd.apache.org/security/vulnerabilities_24.html"
+                },
+                {
+                  "name": "[announce] 20211007 CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "https://lists.apache.org/thread.html/r7c795cd45a3384d4d27e57618a215b0ed19cb6ca8eb070061ad5d837@%3Cannounce.apache.org%3E"
+                },
+                {
+                  "name": "[httpd-users] 20211007 [users@httpd] CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "https://lists.apache.org/thread.html/rb5b0e46f179f60b0c70204656bc52fcb558e961cb4d06a971e9e3efb@%3Cusers.httpd.apache.org%3E"
+                },
+                {
+                  "name": "[oss-security] 20211007 CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/07/6"
+                },
+                {
+                  "name": "20211007 Apache HTTP Server Vulnerabilties: October 2021",
+                  "refsource": "CISCO",
+                  "url": "https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apache-httpd-pathtrv-LAzg68cZ"
+                },
+                {
+                  "name": "JVN#51106450",
+                  "refsource": "JVN",
+                  "url": "http://jvn.jp/en/jp/JVN51106450/index.html"
+                },
+                {
+                  "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/08/1"
+                },
+                {
+                  "name": "[httpd-cvs] 20211008 [httpd-site] branch main updated: * Align with CVE-2021-42013 based on the latest findings",
+                  "refsource": "MLIST",
+                  "url": "https://lists.apache.org/thread.html/r17a4c6ce9aff662efd9459e9d1850ab4a611cb23392fc68264c72cb3@%3Ccvs.httpd.apache.org%3E"
+                },
+                {
+                  "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/08/2"
+                },
+                {
+                  "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/08/3"
+                },
+                {
+                  "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/08/4"
+                },
+                {
+                  "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/08/6"
+                },
+                {
+                  "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/08/5"
+                },
+                {
+                  "name": "[oss-security] 20211009 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/09/1"
+                },
+                {
+                  "name": "[oss-security] 20211011 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/11/4"
+                },
+                {
+                  "name": "FEDORA-2021-2a10bc68a4",
+                  "refsource": "FEDORA",
+                  "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RMIIEFINL6FUIOPD2A3M5XC6DH45Y3CC/"
+                },
+                {
+                  "name": "FEDORA-2021-aaf90ef84a",
+                  "refsource": "FEDORA",
+                  "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/WS5RVHOIIRECG65ZBTZY7IEJVWQSQPG3/"
+                },
+                {
+                  "name": "[oss-security] 20211015 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/15/3"
+                },
+                {
+                  "name": "[oss-security] 20211016 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                  "refsource": "MLIST",
+                  "url": "http://www.openwall.com/lists/oss-security/2021/10/16/1"
+                },
+                {
+                  "name": "https://www.oracle.com/security-alerts/cpujan2022.html",
+                  "refsource": "MISC",
+                  "url": "https://www.oracle.com/security-alerts/cpujan2022.html"
+                },
+                {
+                  "name": "https://security.netapp.com/advisory/ntap-20211029-0009/",
+                  "refsource": "CONFIRM",
+                  "url": "https://security.netapp.com/advisory/ntap-20211029-0009/"
+                },
+                {
+                  "name": "http://packetstormsecurity.com/files/164629/Apache-2.4.49-2.4.50-Traversal-Remote-Code-Execution.html",
+                  "refsource": "MISC",
+                  "url": "http://packetstormsecurity.com/files/164629/Apache-2.4.49-2.4.50-Traversal-Remote-Code-Execution.html"
+                },
+                {
+                  "name": "http://packetstormsecurity.com/files/164941/Apache-HTTP-Server-2.4.50-Remote-Code-Execution.html",
+                  "refsource": "MISC",
+                  "url": "http://packetstormsecurity.com/files/164941/Apache-HTTP-Server-2.4.50-Remote-Code-Execution.html"
+                },
+                {
+                  "name": "http://packetstormsecurity.com/files/164501/Apache-HTTP-Server-2.4.50-Path-Traversal-Code-Execution.html",
+                  "refsource": "MISC",
+                  "url": "http://packetstormsecurity.com/files/164501/Apache-HTTP-Server-2.4.50-Path-Traversal-Code-Execution.html"
+                },
+                {
+                  "name": "http://packetstormsecurity.com/files/164609/Apache-HTTP-Server-2.4.50-Remote-Code-Execution.html",
+                  "refsource": "MISC",
+                  "url": "http://packetstormsecurity.com/files/164609/Apache-HTTP-Server-2.4.50-Remote-Code-Execution.html"
+                },
+                {
+                  "name": "http://packetstormsecurity.com/files/165089/Apache-HTTP-Server-2.4.50-CVE-2021-42013-Exploitation.html",
+                  "refsource": "MISC",
+                  "url": "http://packetstormsecurity.com/files/165089/Apache-HTTP-Server-2.4.50-CVE-2021-42013-Exploitation.html"
+                },
+                {
+                  "name": "https://www.oracle.com/security-alerts/cpuapr2022.html",
+                  "refsource": "MISC",
+                  "url": "https://www.oracle.com/security-alerts/cpuapr2022.html"
+                },
+                {
+                  "name": "http://packetstormsecurity.com/files/167397/Apache-2.4.50-Remote-Code-Execution.html",
+                  "refsource": "MISC",
+                  "url": "http://packetstormsecurity.com/files/167397/Apache-2.4.50-Remote-Code-Execution.html"
+                },
+                {
+                  "name": "https://www.povilaika.com/apache-2-4-50-exploit/",
+                  "refsource": "MISC",
+                  "url": "https://www.povilaika.com/apache-2-4-50-exploit/"
+                },
+                {
+                  "name": "GLSA-202208-20",
+                  "refsource": "GENTOO",
+                  "url": "https://security.gentoo.org/glsa/202208-20"
+                }
+              ]
+            },
+            "source": {
+              "discovery": "UNKNOWN"
+            },
+            "timeline": [
+              {
+                "lang": "en",
+                "time": "2021-10-06T00:00:00.000Z",
+                "value": "reported"
+              }
+            ]
+          }
+        },
+        "adp": [
+          {
+            "providerMetadata": {
+              "orgId": "af854a3a-2127-422b-91ae-364da2661108",
+              "shortName": "CVE",
+              "dateUpdated": "2024-08-04T03:22:25.641Z"
+            },
+            "title": "CVE Program Container",
+            "references": [
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "https://httpd.apache.org/security/vulnerabilities_24.html"
+              },
+              {
+                "name": "[announce] 20211007 CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "https://lists.apache.org/thread.html/r7c795cd45a3384d4d27e57618a215b0ed19cb6ca8eb070061ad5d837%40%3Cannounce.apache.org%3E"
+              },
+              {
+                "name": "[httpd-users] 20211007 [users@httpd] CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "https://lists.apache.org/thread.html/rb5b0e46f179f60b0c70204656bc52fcb558e961cb4d06a971e9e3efb%40%3Cusers.httpd.apache.org%3E"
+              },
+              {
+                "name": "[oss-security] 20211007 CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/07/6"
+              },
+              {
+                "name": "20211007 Apache HTTP Server Vulnerabilties: October 2021",
+                "tags": [
+                  "vendor-advisory",
+                  "x_refsource_CISCO",
+                  "x_transferred"
+                ],
+                "url": "https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apache-httpd-pathtrv-LAzg68cZ"
+              },
+              {
+                "name": "JVN#51106450",
+                "tags": [
+                  "third-party-advisory",
+                  "x_refsource_JVN",
+                  "x_transferred"
+                ],
+                "url": "http://jvn.jp/en/jp/JVN51106450/index.html"
+              },
+              {
+                "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/08/1"
+              },
+              {
+                "name": "[httpd-cvs] 20211008 [httpd-site] branch main updated: * Align with CVE-2021-42013 based on the latest findings",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "https://lists.apache.org/thread.html/r17a4c6ce9aff662efd9459e9d1850ab4a611cb23392fc68264c72cb3%40%3Ccvs.httpd.apache.org%3E"
+              },
+              {
+                "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/08/2"
+              },
+              {
+                "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/08/3"
+              },
+              {
+                "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/08/4"
+              },
+              {
+                "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/08/6"
+              },
+              {
+                "name": "[oss-security] 20211008 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/08/5"
+              },
+              {
+                "name": "[oss-security] 20211009 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/09/1"
+              },
+              {
+                "name": "[oss-security] 20211011 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/11/4"
+              },
+              {
+                "name": "FEDORA-2021-2a10bc68a4",
+                "tags": [
+                  "vendor-advisory",
+                  "x_refsource_FEDORA",
+                  "x_transferred"
+                ],
+                "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/RMIIEFINL6FUIOPD2A3M5XC6DH45Y3CC/"
+              },
+              {
+                "name": "FEDORA-2021-aaf90ef84a",
+                "tags": [
+                  "vendor-advisory",
+                  "x_refsource_FEDORA",
+                  "x_transferred"
+                ],
+                "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/WS5RVHOIIRECG65ZBTZY7IEJVWQSQPG3/"
+              },
+              {
+                "name": "[oss-security] 20211015 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/15/3"
+              },
+              {
+                "name": "[oss-security] 20211016 Re: CVE-2021-42013: Path Traversal and Remote Code Execution in Apache HTTP Server 2.4.49 and 2.4.50 (incomplete fix of CVE-2021-41773)",
+                "tags": [
+                  "mailing-list",
+                  "x_refsource_MLIST",
+                  "x_transferred"
+                ],
+                "url": "http://www.openwall.com/lists/oss-security/2021/10/16/1"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "https://www.oracle.com/security-alerts/cpujan2022.html"
+              },
+              {
+                "tags": [
+                  "x_refsource_CONFIRM",
+                  "x_transferred"
+                ],
+                "url": "https://security.netapp.com/advisory/ntap-20211029-0009/"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "http://packetstormsecurity.com/files/164629/Apache-2.4.49-2.4.50-Traversal-Remote-Code-Execution.html"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "http://packetstormsecurity.com/files/164941/Apache-HTTP-Server-2.4.50-Remote-Code-Execution.html"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "http://packetstormsecurity.com/files/164501/Apache-HTTP-Server-2.4.50-Path-Traversal-Code-Execution.html"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "http://packetstormsecurity.com/files/164609/Apache-HTTP-Server-2.4.50-Remote-Code-Execution.html"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "http://packetstormsecurity.com/files/165089/Apache-HTTP-Server-2.4.50-CVE-2021-42013-Exploitation.html"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "https://www.oracle.com/security-alerts/cpuapr2022.html"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "http://packetstormsecurity.com/files/167397/Apache-2.4.50-Remote-Code-Execution.html"
+              },
+              {
+                "tags": [
+                  "x_refsource_MISC",
+                  "x_transferred"
+                ],
+                "url": "https://www.povilaika.com/apache-2-4-50-exploit/"
+              },
+              {
+                "name": "GLSA-202208-20",
+                "tags": [
+                  "vendor-advisory",
+                  "x_refsource_GENTOO",
+                  "x_transferred"
+                ],
+                "url": "https://security.gentoo.org/glsa/202208-20"
+              }
+            ]
+          },
+          {
+            "metrics": [
+              {
+                "cvssV3_1": {
+                  "scope": "UNCHANGED",
+                  "version": "3.1",
+                  "baseScore": 9.8,
+                  "attackVector": "NETWORK",
+                  "baseSeverity": "CRITICAL",
+                  "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                  "integrityImpact": "HIGH",
+                  "userInteraction": "NONE",
+                  "attackComplexity": "LOW",
+                  "availabilityImpact": "HIGH",
+                  "privilegesRequired": "NONE",
+                  "confidentialityImpact": "HIGH"
+                }
+              },
+              {
+                "other": {
+                  "type": "ssvc",
+                  "content": {
+                    "id": "CVE-2021-42013",
+                    "role": "CISA Coordinator",
+                    "options": [
+                      {
+                        "Exploitation": "active"
+                      },
+                      {
+                        "Automatable": "yes"
+                      },
+                      {
+                        "Technical Impact": "total"
+                      }
+                    ],
+                    "version": "2.0.3",
+                    "timestamp": "2025-02-04T14:28:39.366525Z"
+                  }
+                }
+              },
+              {
+                "other": {
+                  "type": "kev",
+                  "content": {
+                    "dateAdded": "2021-11-03",
+                    "reference": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2021-42013"
+                  }
+                }
+              }
+            ],
+            "references": [
+              {
+                "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2021-42013",
+                "tags": [
+                  "government-resource"
+                ]
+              }
+            ],
+            "timeline": [
+              {
+                "time": "2021-11-03T00:00:00.000Z",
+                "lang": "en",
+                "value": "CVE-2021-42013 added to CISA KEV"
+              }
+            ],
+            "title": "CISA ADP Vulnrichment",
+            "providerMetadata": {
+              "orgId": "134c704f-9b21-4f2e-91b3-4a467353bcc0",
+              "shortName": "CISA-ADP",
+              "dateUpdated": "2025-10-21T23:25:30.222Z"
+            }
+          }
+        ]
+      },
+      "cveMetadata": {
+        "assignerOrgId": "f0158376-9dc2-43b6-827c-5f631a4d8d09",
+        "assignerShortName": "apache",
+        "cveId": "CVE-2021-42013",
+        "datePublished": "2021-10-07T15:50:14.000Z",
+        "dateReserved": "2021-10-06T00:00:00.000Z",
+        "dateUpdated": "2025-10-21T23:25:30.222Z",
+        "state": "PUBLISHED"
+      },
+      "dataType": "CVE_RECORD",
+      "dataVersion": "5.1"
+    }
+  }
+}

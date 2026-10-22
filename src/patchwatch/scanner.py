@@ -31,6 +31,7 @@ def scan(inventory, catalog, digest, *, osv=False):
                         dict(
                             id=f"{advisory['id']}:{pkg['id']}",
                             advisory=advisory["id"],
+                            aliases=advisory.get("aliases", []),
                             summary=advisory["summary"],
                             severity=advisory["severity"],
                             package=pkg,
@@ -41,7 +42,25 @@ def scan(inventory, catalog, digest, *, osv=False):
                     )
     if osv:
         extra, errors = scan_osv(inventory["packages"])
-        findings.extend(extra)
+        for additional in extra:
+            ids = {additional["advisory"], *additional.get("aliases", [])}
+            existing = next(
+                (
+                    f
+                    for f in findings
+                    if f["package"]["id"] == additional["package"]["id"]
+                    and ids.intersection({f["advisory"], *f.get("aliases", [])})
+                ),
+                None,
+            )
+            if existing:
+                existing["aliases"] = sorted(({*existing.get("aliases", []), *ids}) - {existing["advisory"]})
+                existing["references"] = list(
+                    dict.fromkeys([*existing["references"], *additional["references"]])
+                )
+                existing["sources"] = list(dict.fromkeys([existing["source"], "osv"]))
+            else:
+                findings.append(additional)
         warnings.extend(errors)
     return dict(
         schema_version=1,
@@ -111,6 +130,7 @@ def scan_osv(packages):
                         dict(
                             id=f"{vuln['id']}:{pkg['id']}",
                             advisory=vuln["id"],
+                            aliases=vuln.get("aliases", []),
                             summary=vuln.get("summary", vuln["id"]),
                             severity="unknown",
                             package=pkg,
